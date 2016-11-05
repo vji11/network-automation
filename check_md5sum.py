@@ -17,6 +17,6 @@ output2 = stdout.readlines()
 ssh.close()
 
 if any(md5_sum in s for s in output2):
-	print "ok"
+	print "ok - checksum verified"
 else:
-	print "not"
+	print "not ok - upload failed - checksum error"
