@@ -12,7 +12,7 @@ b64pass = base64.b64decode("Y2ljaTE=")
 b64usr = base64.b64decode("dmppZWFudQ==")
 cmd_up = 'copy tftp:'
 cmd_1 = cmd_up + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
-md5_check = "show file" + image + " " + "md5sum"  
+md5_check = "show file " + image + " " + "md5sum"  
 
 import paramiko
 ssh = paramiko.SSHClient()
