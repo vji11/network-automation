@@ -10,6 +10,10 @@ image = form.getvalue('image')
 os_size = form.getvalue('os_size')
 md5_sum = form.getvalue('md5_sum')
 
+print 'Content-type: text/html\r\n\r'
+print '<html>'
+print keyword
+
 import paramiko
 import base64
 
@@ -25,9 +29,8 @@ output2 = stdout.readlines()
 ssh.close()
 
 if any(md5_sum in s for s in output2):
-	print 'Content-type: text/html\r\n\r'
-    print '<html>'
-    print "md5 " + md5_sum + " " + "checksum verified. Upload Succesfull."
-    print '</html>'
+	print "md5 " + md5_sum + " " + "checksum verified. Upload Succesfull."
 else:
-	print "not"
+	print "Upload Failed. Original Checksum " + md5_sum + " " + "differ from calculated checksum"
+
+print '</html>'	
