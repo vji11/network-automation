@@ -12,7 +12,6 @@ md5_sum = form.getvalue('md5_sum')
 
 print 'Content-type: text/html\r\n\r'
 print '<html>'
-print '<h1>Performing the following upgrade</h1>'
 print device
 print image
 print os_size
