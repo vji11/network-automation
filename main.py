@@ -65,9 +65,10 @@ while True:
 ssh.connect(device, port=22, username=b64usr, password=b64pass)
 stdin, stdout, stder = ssh.exec_command(md5_check)
 output2 = stdout.readlines()
+print '\n'.join(output2)
 ssh.close()
 
 if any(md5_sum in s for s in output2):
-    print "md5 checksum verified , Upload Succesfull"
+    print "md5 checksum verified. Upload Succesfull."
 else:
-    print "Upload Failed , invalid md5 checksum"
+    print "Upload Failed. Invalid md5 checksum."
