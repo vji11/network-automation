@@ -1,28 +1,13 @@
-#!/usr/bin/python
+#!/home/python
+import cgi
+import cgitb
+cgitb.enable()
 
-# Import modules for CGI handling 
-import cgi, cgitb 
-
-# Create instance of FieldStorage 
-form = cgi.FieldStorage() 
-
-# Get data from fields
-first_name = form.getvalue('first_name')
-last_name  = form.getvalue('last_name')
-
-print "Content-type:text/html\r\n\r\n"
-print "<html>"
-print "<head>"
-print "<title>Hello - Second CGI Program</title>"
-print "</head>"
-print "<body>"
-print "<h2>Hello %s %s</h2>" % (first_name, last_name)
-print "</body>"
-print "</html>"
-
-<form action="/usr/lib/cgi-bin/test.py" method="get">
-First Name: <input type="text" name="first_name">  <br />
-
-Last Name: <input type="text" name="last_name" />
-<input type="submit" value="Submit" />
-</form>
+print 'Content-type: text/html\r\n\r'
+print '<html>'
+print '<h1>Please enter a keyword of your choice</h1>'
+print '<form action="next.cgi" method="get">'
+print 'Keyword: <input type="text" name="keyword">  <br />'
+print '<input type="submit" value="Submit" />'
+print '</form>'
+print '</html>'
