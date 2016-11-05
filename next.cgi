@@ -16,6 +16,7 @@ print '<html>' #start of html output
 tftp_server = '10.65.18.99'
 my_vrf = 'default'
 cmd_dir = 'dir | i free'
+import base64
 b64pass = base64.b64decode("Y2ljaTE=")
 b64usr = base64.b64decode("dmppZWFudQ==")
 cmd_up = 'copy tftp:'
