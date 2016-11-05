@@ -5,7 +5,10 @@ cgitb.enable()
 
 form = cgi.FieldStorage()
 
-keyword = form.getvalue('keyword')
+device = form.getvalue('device')
+image = form.getvalue('image')
+os_size = form.getvalue('os_size')
+md5_sum = form.getvalue('md5_sum')
 
 print 'Content-type: text/html\r\n\r'
 print '<html>'
