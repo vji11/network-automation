@@ -25,6 +25,9 @@ output2 = stdout.readlines()
 ssh.close()
 
 if any(md5_sum in s for s in output2):
-	print "ok"
+	print 'Content-type: text/html\r\n\r'
+    print '<html>'
+    print "md5 " + md5_sum + " " + "checksum verified. Upload Succesfull."
+    print '</html>'
 else:
 	print "not"
