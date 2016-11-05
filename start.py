@@ -1,0 +1,11 @@
+#!/home/python
+import cgi
+import cgitb
+cgitb.enable()
+
+<form action="go.py" method="get">
+First Name: <input type="text" name="first_name">  <br />
+
+Last Name: <input type="text" name="last_name" />
+<input type="submit" value="Submit" />
+</form>
