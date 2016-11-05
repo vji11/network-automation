@@ -13,7 +13,7 @@ md5_sum = form.getvalue('md5_sum')
 print 'Content-type: text/html\r\n\r'
 print '<html>' #start of html output
 
-print device  <br/>
+print device
 
 import paramiko
 import base64
@@ -30,8 +30,8 @@ output2 = stdout.readlines()
 ssh.close()
 
 if any(md5_sum in s for s in output2):
-	print "Upload Succesfull" + "md5 " + md5_sum + " " + "checksum verified. Upload Succesfull."
+	print "\nUpload Succesfull" + "md5 " + md5_sum + " " + "checksum verified. Upload Succesfull."
 else:
-	print "Upload Failed." + "Original Checksum " + md5_sum + " " + "differ from calculated checksum"
+	print "\nUpload Failed." + "Original Checksum " + md5_sum + " " + "differ from calculated checksum"
 
 print '</html>'	#end html page
