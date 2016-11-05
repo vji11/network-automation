@@ -19,3 +19,10 @@ print "<body>"
 print "<h2>Hello %s %s</h2>" % (first_name, last_name)
 print "</body>"
 print "</html>"
+
+<form action="/usr/lib/cgi-bin/test.py" method="get">
+First Name: <input type="text" name="first_name">  <br />
+
+Last Name: <input type="text" name="last_name" />
+<input type="submit" value="Submit" />
+</form>
