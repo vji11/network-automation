@@ -12,7 +12,7 @@ md5_sum = form.getvalue('md5_sum')
 
 print 'Content-type: text/html\r\n\r'
 print '<html>'
-print keyword
+print device
 
 import paramiko
 import base64
