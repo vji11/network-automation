@@ -10,7 +10,7 @@ image = form.getvalue('image')
 os_size = form.getvalue('os_size')
 md5_sum = form.getvalue('md5_sum')
 tftp_server = form.getvalue('tftp_server')
-my_vrf = form.getvalue(my_vrf)
+my_vrf = form.getvalue('my_vrf')
 
 print 'Content-type: text/html\r\n\r'
 print '<html>' #start of html output
