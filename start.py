@@ -5,7 +5,7 @@ cgitb.enable()
 
 print 'Content-type: text/html\r\n\r'
 print '<html>'
-print '<h1>Verify uploaded file integrity. Please fill in the details below </h1>'
+print '<h1>Verify uploaded file integrity</h1>'
 print '<form action="next.cgi" method="get">'
 print 'Device to upgrade: <input type="text" name="device">  <br />'
 print 'TFTP Server: <input type="text" name="tftp_server">  <br />'
