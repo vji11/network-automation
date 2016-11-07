@@ -29,6 +29,7 @@ cmd_dir_file = 'dir | i' + image
 ssh.connect(device, port=22, username=b64usr, password=b64pass)
 stdin, stdout, stder = ssh.exec_command(cmd_dir_file)
 output_of_dir_file = stdout.readlines()
+print '\n'.join(output_of_dir_file)
 ssh.close()
 
 for line in output_of_dir_file:
