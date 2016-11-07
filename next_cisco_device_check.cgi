@@ -41,17 +41,13 @@ for line in output_sh_ver:
     if 'uptime' in line:
         print line     
 
-for line in output_sh_ver:
-    if 'vlan' in line:
-        my_vlan = (line.split()[3].strip('('))
-
 #reading the input and parsing
 
 for line in output_sh_ver:
     if 'IOS' in line:
-        myos = (line.split()[7].strip('('))
+        myos = (line.split()[0:-1].strip('('))
 print('<br />')
-print myos
+print "IOS Version: " + myos
 
 #program end
 
