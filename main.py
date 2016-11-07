@@ -90,11 +90,11 @@ while True:
     	print "Program End"
     	break
 
-
 #Verifify the MD5 checksum
 ssh.connect(device, port=22, username=b64usr, password=b64pass)
 stdin, stdout, stder = ssh.exec_command(md5_check)
 output2 = stdout.readlines()
+print '\n'.join(output2)
 ssh.close()
 
 #compare the md5 checksum and display upload result
