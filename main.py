@@ -38,11 +38,14 @@ if boolean_dir_file_result == True:
     print 'The file you are trying to upload is already there.'
     exit(True)
 else:
-    #perform ssh connection
-    ssh.connect(device, port=22, username=b64usr, password=b64pass)
-    stdin, stdout, stder = ssh.exec_command(cmd_dir)
-    output = stdout.readlines()
-    ssh.close()
+    import time
+    time.sleep(1)
+    
+#perform ssh connection
+ssh.connect(device, port=22, username=b64usr, password=b64pass)
+stdin, stdout, stder = ssh.exec_command(cmd_dir)
+output = stdout.readlines()
+ssh.close()
 
 #store the flash free space information
 for line in output:
