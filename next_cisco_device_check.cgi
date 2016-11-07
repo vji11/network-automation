@@ -39,12 +39,9 @@ for line in output_sh_ver:
 
 for line in output_sh_ver:
     if 'uptime' in line:
-        myuptime = (line.split()[3:0].strip('('))        
+        print line     
 
 #printing output
-
-print "Uptime: "+ myuptime
-print('<br />')
 
 #program end
 
