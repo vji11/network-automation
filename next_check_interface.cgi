@@ -18,8 +18,8 @@ import paramiko
 import base64
 b64pass = base64.b64decode("Y2ljaTE=")
 b64usr = base64.b64decode("dmppZWFudQ==")
-int_check = "show interface " + "Gig"+ mymodule + "/" + myport
-sh_run_int = "show run interface " + mymodule + "/" + myport
+int_check = "show interface " + "Gig" + mymodule + "/" + myport
+sh_run_int = "show run interface " + "Gig" + mymodule + "/" + myport
 
 #initiate ssh connection
 ssh = paramiko.SSHClient()
@@ -48,11 +48,13 @@ for line in output_int_check:
 ssh.connect(mydevice, port=22, username=b64usr, password=b64pass)
 stdin, stdout, stder = ssh.exec_command(sh_run_int)
 output_sh_run_int = stdout.readlines()
+#print '\n'.join(output_sh_run_int)
 ssh.close()
+
 
 for line in output_sh_run_int:
     if 'vlan' in line:
-        myvlan = (line.split()[3].strip('('))
+        my_vlan = (line.split()[3].strip('('))
 
 #printing output
 print "Duplex of the interface is: "+ myduplex
@@ -61,7 +63,8 @@ print "Speed of the interface is: " + myspeed
 print('<br />')
 print "Input errors on the interface: " + myinputerrors
 print('<br />')
-print "Interface is configured for VLAN: " + myvlan
+print "Access VLAN: " + my_vlan
+print('<br />')
 
 #program end
 
