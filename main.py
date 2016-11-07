@@ -35,7 +35,7 @@ for line in output_of_dir_file:
     if image in line:
         boolean_dir_file_result = True
 
-if boolean_dir_file_result = True:
+if boolean_dir_file_result == True:
     print 'The file you are trying to upload is already there.'
     exit(True)
 else:
