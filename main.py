@@ -33,9 +33,7 @@ output_of_dir_file = stdout.readlines()
 ssh.close()
 
 if any(image in s for s in output_of_dir_file):
-    print('<br />')
-    print 'The file you are trying to upload is already there.'
-    print('<br />')
+    print '\nThe file you are trying to upload is already there.'
     print 'Program will exit now.'
     exit()
 else:
