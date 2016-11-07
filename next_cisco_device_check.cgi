@@ -31,11 +31,9 @@ ssh.close()
 #reading the input and parsing
 for line in output_sh_ver:
     if 'IOS' in line:
-        device_type = (line.split()[1].strip('('))
+        print "Device type is Cisco Catalyst"
 
 #printing output
-print "Device type is : "+ device_type
-print('<br />')
 
 #program end
 
