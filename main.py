@@ -23,7 +23,6 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 
 #check if file is already on the flash
-
 cmd_dir_file = 'dir | i' + image
 
 ssh.connect(device, port=22, username=b64usr, password=b64pass)
