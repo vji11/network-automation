@@ -28,14 +28,6 @@ stdin, stdout, stder = ssh.exec_command(sh_ver)
 output_sh_ver = stdout.readlines()
 ssh.close()
 
-#reading the input and parsing
-
-for line in output_sh_ver:
-    if 'IOS' in line:
-        myos = (line.split()[7].strip('('))
-print('<br />')
-print myos
-
 #direct print
 print mydevice
 print('<br />')
@@ -52,6 +44,14 @@ for line in output_sh_ver:
 for line in output_sh_ver:
     if 'vlan' in line:
         my_vlan = (line.split()[3].strip('('))
+
+#reading the input and parsing
+
+for line in output_sh_ver:
+    if 'IOS' in line:
+        myos = (line.split()[7].strip('('))
+print('<br />')
+print myos
 
 #program end
 
