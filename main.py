@@ -79,6 +79,7 @@ while True:
             stdin, stdout, stder = ssh.exec_command(cmd_1)
             output1 = stdout.readlines()
             print '\n'.join(output1)
+            print 'Press any key to continue'
             ssh.close()         
         else:
             print "Upgrade cannot continue due not enough space on the flash"
