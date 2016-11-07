@@ -36,7 +36,7 @@ ssh.close()
 #    if image in line:
 #        boolean_dir_file_result = True
 
-if image in line:
+if image in output_of_dir_file:
     print 'The file you are trying to upload is already there.'
     print 'Program will exit now.'
     exit(True)
