@@ -32,11 +32,11 @@ output_of_dir_file = stdout.readlines()
 #print '\n'.join(output_of_dir_file)
 ssh.close()
 
-for line in output_of_dir_file:
-    if image in line:
-        boolean_dir_file_result = True
+#for line in output_of_dir_file:
+#    if image in line:
+#        boolean_dir_file_result = True
 
-if boolean_dir_file_result == True:
+if image in line:
     print 'The file you are trying to upload is already there.'
     print 'Program will exit now.'
     exit(True)
