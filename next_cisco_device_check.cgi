@@ -29,11 +29,22 @@ output_sh_ver = stdout.readlines()
 ssh.close()
 
 #reading the input and parsing
+
+print mydevice
+print('<br />')
+
 for line in output_sh_ver:
     if 'IOS' in line:
-        print "Device type is Cisco Catalyst"
+        print "Device type is: Cisco Catalyst"
+
+for line in output_sh_ver:
+    if 'uptime' in line:
+        myuptime = (line.split()[3:0].strip('('))        
 
 #printing output
+
+print "Uptime: "+ myuptime
+print('<br />')
 
 #program end
 
