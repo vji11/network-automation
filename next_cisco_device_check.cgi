@@ -37,6 +37,7 @@ for line in output_sh_ver:
     if 'IOS' in line:
         print "Device type is: Cisco Catalyst"
 
+print('<br />')
 for line in output_sh_ver:
     if 'uptime' in line:
         print line     
