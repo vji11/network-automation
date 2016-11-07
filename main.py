@@ -34,7 +34,7 @@ ssh.close()
 
 for line in output_of_dir_file:
     if image in line:
-        dir_result= (line.split()[5].strip('('))
+        dir_result = (line.split()[5].strip('('))
 
 if image == dir_result:
     print 'The file you are trying to upload is already there.'
