@@ -30,6 +30,13 @@ ssh.close()
 
 #reading the input and parsing
 
+for line in output_sh_ver:
+    if 'IOS' in line:
+        myos = (line.split()[7].strip('('))
+print('<br />')
+print myos
+
+#direct print
 print mydevice
 print('<br />')
 
@@ -42,7 +49,9 @@ for line in output_sh_ver:
     if 'uptime' in line:
         print line     
 
-#printing output
+for line in output_sh_ver:
+    if 'vlan' in line:
+        my_vlan = (line.split()[3].strip('('))
 
 #program end
 
