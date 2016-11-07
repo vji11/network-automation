@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import base64
+import time
 
 #variables
 tftp_server = '10.65.18.99'
@@ -36,9 +37,9 @@ for line in output_of_dir_file:
 
 if boolean_dir_file_result == True:
     print 'The file you are trying to upload is already there.'
+    print 'Program will exit now.'
     exit(True)
 else:
-    import time
     time.sleep(1)
     
 #perform ssh connection
