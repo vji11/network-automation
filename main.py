@@ -25,19 +25,19 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 #check if file is already on the flash
 cmd_dir_file = 'dir | i' + image
 
-ssh.connect(device, port=22, username=b64usr, password=b64pass)
-stdin, stdout, stder = ssh.exec_command(cmd_dir_file)
-output_of_dir_file = stdout.readlines()
-ssh.close()
+#ssh.connect(device, port=22, username=b64usr, password=b64pass)
+#stdin, stdout, stder = ssh.exec_command(cmd_dir_file)
+#output_of_dir_file = stdout.readlines()
+#ssh.close()
 
-for line in output_of_dir_file:
-    if image in line:
-        boolean_dir_file_result = True
+#for line in output_of_dir_file:
+#    if image in line:
+#        boolean_dir_file_result = True
 
-if boolean_dir_file_result == True:
-    print 'The file you are trying to upload is already there.'
-    exit(True)
-else:
+#if boolean_dir_file_result == True:
+#    print 'The file you are trying to upload is already there.'
+#    exit(True)
+#else:
 
 #perform ssh connection
 ssh.connect(device, port=22, username=b64usr, password=b64pass)
