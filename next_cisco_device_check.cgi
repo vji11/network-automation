@@ -45,7 +45,7 @@ for line in output_sh_ver:
 
 for line in output_sh_ver:
     if 'IOS' in line:
-        myos = (line.split()[7].strip(-1'('))
+        myos = (line.split()[7].strip('('))
 print('<br />')
 print "IOS Version: " + myos
 
