@@ -8,7 +8,7 @@ print '<html>'
 print '<h1>AM3 Routing Check:</h1>'
 
 #HTML Form - Text Box
-print '<form action="next_cisco_device_check.cgi" method="get">'
+print '<form action="route_check.py" method="get">'
 print 'Device: <input type="text" name="mydevice">  <br />'
 print '<input type="submit" value="Verify" />'
 print '</form>'
@@ -23,7 +23,7 @@ print '</form>'
 #print '</form>'
 
 #HTML Form - Dropdown Menu
-print '<form action="/cgi-bin/dropdown.py" method="post" target="_blank">'
+print '<form action="route_check.py" method="post" target="_blank">'
 print '<select name="dropdown">'
 print '<option value="vrf-accmedia" selected>vrf-accmedia</option>'
 print '<option value="vrf-devmedia">vrf-devmedia</option>'
