@@ -13,7 +13,7 @@ print '</form>'
 print '</html>'
 
 print '<form action="next_command.execute.cgi" method="post" target="_blank">'
-print '<textarea name="textcontent" cols="40" rows="4">'
+print '<textarea name="textcontent" cols="100" rows="10">'
 print 'Command or block of commands to run'
 print '</textarea>'
 print '<input type="submit" value="Submit" />'
