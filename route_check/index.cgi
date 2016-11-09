@@ -40,5 +40,11 @@ print '</select>'
 print '<input type="submit" value="Submit"/>'
 print '</form>'
 
+#HTML Radio button
+print '<form action="radiobutton.py" method="post" target="_blank">'
+print '<input type="radio" name="subject" value="Catalyst" /> Catalyst'
+print '<input type="radio" name="subject" value="Nexus" /> Nexus'
+print '<input type="submit" value="Select Subject" />'
+print '</form>'
 
 print '</html>'
