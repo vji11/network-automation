@@ -21,6 +21,8 @@ b64pass = base64.b64decode("Z2l6bW9YMTEx")
 b64usr = base64.b64decode("dmppZWFudQ==")
 mroute_check = "show ip mroute vrf vrf-video | i 1/1"
 mydevice = '10.149.132.205'
+primary_interface = 'GigabitEthernet1/1'
+backup_interface = 'GigabitEthernet1/11'
 command1 = "show stuff"
 ssh = paramiko.SSHClient()
 
@@ -40,12 +42,17 @@ while web_select == 'mcast_src_feed':
 	break
 
 #reading the input and parsing
-for line in output1:
-    if '1/11' in line:
-        my_mroute = (line.split()[2].strip('('))
-        print 'multicast source feed is B: ' + my_mroute
-    else:
-    	print 'multicast source feed is A: ' + my_mroute
+#for line in output1:
+#    if '1/11' in line:
+#        my_mroute = (line.split()[2].strip('('))
+#        print 'multicast source feed is B: ' + my_mroute
+#    else:
+#    	print 'multicast source feed is A: ' + my_mroute
+
+if any(backup_interface in s for s in output1):
+    print "multicast source feed is B " + backup_interface
+else:
+    print "multicast source feed is A " + primary_interface
 
 #program end
 print '</html>'	#end html page
