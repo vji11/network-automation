@@ -32,6 +32,7 @@ while web_select == 'mcast_src_feed':
 	ssh.connect(mydevice, port=22, username=b64usr, password=b64pass)
 	stdin, stdout, stder = ssh.exec_command(mroute_check)
 	output1 = stdout.readlines()
+	print '\n'.join(output1)
 	ssh.close()
 
 #reading the input and parsing
