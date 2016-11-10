@@ -23,6 +23,8 @@ mroute_check = "show ip mroute vrf vrf-video | i 1/1"
 mydevice = '10.149.132.205'
 primary_interface = 'GigabitEthernet1/1'
 backup_interface = 'GigabitEthernet1/11'
+primary_appertv = 'ATVP001'
+backup_appertv = 'ATVP002'
 command1 = "show stuff"
 ssh = paramiko.SSHClient()
 
@@ -42,9 +44,17 @@ while web_select == 'mcast_src_feed':
 	break
 
 if any(backup_interface in s for s in output1):
-    print "multicast source feed is B " + backup_interface
+    print "multicast source feed is B."
+    print('<br />')
+    print "Source interface of MCAST Route is " + backup_interface
+    print('<br />')
+    print "Video feed is " + backup_appertv
 else:
-    print "multicast source feed is A " + primary_interface
+    print "multicast source feed is A."
+    print('<br />')
+    print "Source interface of MCAST Route is " + primary_interface
+    print('<br />')
+    print "Video feed is " + primary_appertv
 
 #program end
 print '</html>'	#end html page
