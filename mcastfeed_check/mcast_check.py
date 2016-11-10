@@ -22,6 +22,10 @@ b64usr = base64.b64decode("dmppZWFudQ==")
 mroute_check = "show ip mroute vrf vrf-video | i 1/1"
 mydevice = '10.149.132.205'
 command1 = "show stuff"
+ssh = paramiko.SSHClient()
+
+#if SSH certificate is not in hosts file automatically accept it
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 while web_select == 'mcast_src_feed':
 	#initiate ssh connection
