@@ -44,14 +44,10 @@ while web_select == 'mcast_src_feed':
 	break
 
 if any(backup_interface in s for s in output1):
-    print "multicast source feed is B."
-    print('<br />')
     print "Source interface of MCAST Route is " + backup_interface
     print('<br />')
     print "Video feed is " + backup_appertv
 else:
-    print "multicast source feed is A."
-    print('<br />')
     print "Source interface of MCAST Route is " + primary_interface
     print('<br />')
     print "Video feed is " + primary_appertv
