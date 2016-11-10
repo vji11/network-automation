@@ -46,7 +46,7 @@ while web_select == 'mcast_src_feed':
 	ssh.close()
 	break
 
-if any(backup_interface in s for s in output1):
+if any(backup_interface in s1 for s1 in output1):
     print "Source interface of MCAST Route is " + backup_interface
     print('<br />')
     print "Video feed is " + backup_appertv
@@ -64,12 +64,12 @@ while web_select == 'mcast_src_feed':
 	#run command on device and get read the output
 	ssh.connect(mydeviceB, port=22, username=b64usr, password=b64pass)
 	stdin, stdout, stder = ssh.exec_command(mroute_check)
-	output1 = stdout.readlines()
+	output2 = stdout.readlines()
 #	print '\n'.join(output1)
 	ssh.close()
 	break
 
-if any(backup_interface in s for s in output1):
+if any(backup_interface in s2 for s2 in output2):
     print "Source interface of MCAST Route is " + backup_interface
     print('<br />')
     print "Video feed is " + backup_appertv
