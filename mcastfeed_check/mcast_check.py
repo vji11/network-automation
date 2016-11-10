@@ -31,11 +31,11 @@ while web_select == 'mcast_src_feed':
 	#run command on device and get read the output
 	ssh.connect(mydevice, port=22, username=b64usr, password=b64pass)
 	stdin, stdout, stder = ssh.exec_command(mroute_check)
-	output_int_check = stdout.readlines()
+	output_mroute_check = stdout.readlines()
 	ssh.close()
 
 #reading the input and parsing
-for line in mroute_check:
+for line in output_mroute_check:
     if '1/11' in line:
         my_mroute = (line.split()[2].strip('('))
         print 'multicast source feed is B: ' + my_mroute
