@@ -37,6 +37,7 @@ while web_select == 'mcast_src_feed':
 	output1 = stdout.readlines()
 	print '\n'.join(output1)
 	ssh.close()
+	break
 
 #reading the input and parsing
 for line in output1:
