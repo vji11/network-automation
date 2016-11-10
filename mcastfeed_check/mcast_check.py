@@ -5,8 +5,8 @@ cgitb.enable()
 form = cgi.FieldStorage()
 
 #import variables from web-form
-if form.getvalue('subject'):
-   web_select = form.getvalue('subject')
+if form.getvalue('web_select'):
+   web_select = form.getvalue('web_select')
 else:
    web_select = "Not set"
 
