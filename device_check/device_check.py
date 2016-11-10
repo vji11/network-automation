@@ -26,6 +26,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(mydevice, port=22, username=b64usr, password=b64pass)
 stdin, stdout, stder = ssh.exec_command(sh_ver)
 output_sh_ver = stdout.readlines()
+print '\n'.join(output_sh_ver)
 ssh.close()
 
 #direct print
