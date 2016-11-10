@@ -37,17 +37,9 @@ while web_select == 'mcast_src_feed':
 	ssh.connect(mydevice, port=22, username=b64usr, password=b64pass)
 	stdin, stdout, stder = ssh.exec_command(mroute_check)
 	output1 = stdout.readlines()
-	print '\n'.join(output1)
+#	print '\n'.join(output1)
 	ssh.close()
 	break
-
-#reading the input and parsing
-#for line in output1:
-#    if '1/11' in line:
-#        my_mroute = (line.split()[2].strip('('))
-#        print 'multicast source feed is B: ' + my_mroute
-#    else:
-#    	print 'multicast source feed is A: ' + my_mroute
 
 if any(backup_interface in s for s in output1):
     print "multicast source feed is B " + backup_interface
