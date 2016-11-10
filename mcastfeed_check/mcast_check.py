@@ -37,11 +37,11 @@ while web_select == 'mcast_src_feed':
 #reading the input and parsing
 for line in mroute_check:
     if '1/11' in line:
-        my_mroute_interface = (line.split()[2].strip('('))
-        print 'multicast source feed is B: ' + my_mroute_interface
+        my_mroute = (line.split()[2].strip('('))
+        print 'multicast source feed is B: ' + my_mroute
     else:
-    	my_mroute_interface = (line.split()[2].strip('('))
-    	print 'multicast source feed is A: ' + my_mroute_interface
+    	my_mroute = (line.split()[2].strip('('))
+    	print 'multicast source feed is A: ' + my_mroute
 
 #program end
 print '</html>'	#end html page
