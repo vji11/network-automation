@@ -55,7 +55,7 @@ else:
     print('<br />')
     print "Video feed is " + primary_appertv
 
-print '<h3>Multicast route for network path B via rtmcasta0102:</h3>'
+print '<h3>Multicast route for network path B via rtmcastb0102:</h3>'
 
 while web_select == 'mcast_src_feed':
 	#initiate ssh connection
