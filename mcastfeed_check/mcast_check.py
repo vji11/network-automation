@@ -45,7 +45,6 @@ for line in output1:
         my_mroute = (line.split()[2].strip('('))
         print 'multicast source feed is B: ' + my_mroute
     else:
-    	my_mroute = (line.split()[2].strip('('))
     	print 'multicast source feed is A: ' + my_mroute
 
 #program end
