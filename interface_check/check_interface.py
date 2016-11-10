@@ -29,6 +29,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(mydevice, port=22, username=b64usr, password=b64pass)
 stdin, stdout, stder = ssh.exec_command(int_check)
 output_int_check = stdout.readlines()
+print '\n'.join(output_int_check)
 ssh.close()
 
 #reading the input and parsing
