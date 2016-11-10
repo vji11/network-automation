@@ -32,8 +32,7 @@ ssh = paramiko.SSHClient()
 #if SSH certificate is not in hosts file automatically accept it
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-print '<h1>Multicast route for network path A via rtmcasta0101:</h1>'
-print('<br />')
+print '<h3>Multicast route for network path A via rtmcasta0101:</h3>'
 
 while web_select == 'mcast_src_feed':
 	#initiate ssh connection
@@ -56,8 +55,7 @@ else:
     print('<br />')
     print "Video feed is " + primary_appertv
 
-print '<h1>Multicast route for network path B via rtmcasta0102:</h1>'
-print('<br />')
+print '<h3>Multicast route for network path B via rtmcasta0102:</h3>'
 
 while web_select == 'mcast_src_feed':
 	#initiate ssh connection
