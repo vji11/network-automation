@@ -20,7 +20,7 @@ import base64
 b64pass = base64.b64decode("Z2l6bW9YMTEx")
 b64usr = base64.b64decode("dmppZWFudQ==")
 mroute_check = "show ip mroute vrf vrf-video | i 1/1"
-mydevice = 'rtmcasta0101.mgt.dmc-int.net'
+mydevice = '10.149.132.205'
 command1 = "show stuff"
 
 while web_select == 'mcast_src_feed':
