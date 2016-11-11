@@ -2,10 +2,11 @@
 
 import base64
 import time
+import getpass
 
 #variables
 myuser = raw_input('Username: ')
-mypass = raw_input('Password: ')
+mypass = getpass.getpass('Password: ')
 my_vrf = raw_input('VRF: ')
 device = raw_input('Device to upgrade: ')
 image = raw_input('Name of the NX-OS file: ')
