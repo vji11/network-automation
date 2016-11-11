@@ -7,10 +7,8 @@ import re
 import sys
 import time
 
-
 '''***** Get command line arguments, set global variables, and define supportive functions **************************'''
 # Define command line arguments and globals
-
 
 def args():
     parser = argparse.ArgumentParser(description='An awesome Python Program to search through switches '
