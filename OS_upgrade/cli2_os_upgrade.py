@@ -29,7 +29,6 @@ def ssh_connect_no_shell(command):
 	ssh_no_shell.exec_command('terminal length 0\n')
 	stdin, stdout, stder = ssh_no_shell.exec_command(command)
 	output = stdout.readlines()
-	#print '\n'.join(output)
 	ssh_no_shell.close()
 
 #check if file is already on the flash
@@ -83,6 +82,6 @@ def main():
 
 #run main program in main file
 if __name__ == '__main__':
-	#clear_screen()
+	clear_screen()
 	main()
 #end
