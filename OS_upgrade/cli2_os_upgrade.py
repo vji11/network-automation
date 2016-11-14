@@ -16,13 +16,11 @@ def variables1():
 	md5_sum = raw_input('MD5 Checksum of the image: ')
 	myuser = raw_input('Username: ')
 	mypass = getpass.getpass('Password: ')
-
-#cisco commands composer
-cmd_dir_file = 'dir | include ' + image
-cmd_dir = 'dir | include free'
-cmd_up = 'copy tftp:'
-cmd_1 = cmd_up + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
-md5_check = "show file " + image + " " + "md5sum"
+	cmd_dir_file = 'dir | include ' + image
+	cmd_dir = 'dir | include free'
+	cmd_up = 'copy tftp:'
+	cmd_1 = cmd_up + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
+	md5_check = "show file " + image + " " + "md5sum"
 
 #define clear-screen function
 def clear_screen():
