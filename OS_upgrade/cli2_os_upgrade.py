@@ -35,23 +35,16 @@ def ssh_connect_no_shell(command):
 	ssh_no_shell.connect(device, port=22, username=myuser, password=mypass)
 	stdin, stdout, stder = ssh_no_shell.exec_command(command)
 	output = stdout.readlines()
-	result = output
-	#print '\n'.join(result)
+	#print '\n'.join(output)
 	ssh_no_shell.close()
-
-def Find(pattern, text):
-	match = re.search(pattern, text)
-  	if match:
-  		print match.group() + '\n'
-  	else:
-  		print 'Pattern not found in text'
 
 #check if file is already on the flash
 def check_if_file_present():
 	ssh_connect_no_shell(cmd_dir_file)
+	print '\n'.join(output)
 	if any(image in s for s in output):
 		print '\nThe file you are trying to upload is already there.'
-		print 'Program will exit now.'
+		print '\nProgram will exit now...'
 		exit()
 	else:
 		time.sleep(1)
