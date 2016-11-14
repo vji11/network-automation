@@ -60,7 +60,14 @@ def upload_file():
 	ssh_connect_no_shell(cmd_1)
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
-	print '\n##### Device Output End #####' 
+	print '\n##### Device Output End #####'
+
+def check_file_md5sum():
+	ssh_connect_no_shell(md5_check)
+	if any(md5_sum in s for s in output):
+		print "Upload Succesfull. " + "md5 " + md5_sum + " " + "checksum verified."
+	else:
+		print "Upload Failed. " + "Original Checksum " + md5_sum + " " + "differ from calculated checksum"
 
 #main program
 def main():
@@ -70,6 +77,7 @@ def main():
 	check_if_file_present()
 	check_if_enough_space()
 	upload_file()
+	check_file_md5sum()
 
 #run main program in main file
 if __name__ == '__main__':
