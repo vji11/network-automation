@@ -1,6 +1,5 @@
 import time
 
-
 def perform_upgrade():
     print '\nNX-OS installation in progress'
 
@@ -28,7 +27,6 @@ def are_you_sure(do_stuff):
             print 'Program End.'
             break
 
-
 def main():
     print 'Program starting...\n'
     time.sleep(1)
@@ -36,4 +34,4 @@ def main():
 
 if __name__ == '__main__':
     #clear_screen()
-    main()            
+    main()
