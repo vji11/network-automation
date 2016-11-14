@@ -52,7 +52,7 @@ def check_if_file_present():
 	if any(image in s for s in output):
     	print '\nThe file you are trying to upload is already there.'
     	print 'Program will exit now.'
-    exit()
+        exit()
 	else:
     	time.sleep(1)
 
