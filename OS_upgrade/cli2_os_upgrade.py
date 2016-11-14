@@ -7,14 +7,15 @@ import getpass
 import base64
 
 #variables
-device = raw_input('Device to upgrade: ')
-my_vrf = raw_input('VRF: ')
-tftp_server = raw_input('TFTP Server: ')
-image = raw_input('Name of the NX-OS file: ')
-os_size = int(raw_input('Size in bytes of the NX-OS image: '))
-md5_sum = raw_input('MD5 Checksum of the image: ')
-myuser = raw_input('Username: ')
-mypass = getpass.getpass('Password: ')
+def variables1():
+	device = raw_input('Device to upgrade: ')
+	my_vrf = raw_input('VRF: ')
+	tftp_server = raw_input('TFTP Server: ')
+	image = raw_input('Name of the NX-OS file: ')
+	os_size = int(raw_input('Size in bytes of the NX-OS image: '))
+	md5_sum = raw_input('MD5 Checksum of the image: ')
+	myuser = raw_input('Username: ')
+	mypass = getpass.getpass('Password: ')
 
 #cisco commands composer
 cmd_dir_file = 'dir | include ' + image
@@ -41,6 +42,7 @@ def ssh_connect_no_shell(command):
 def main():
 	print 'Program starting...\n'
 	time.sleep(1)
+	variables1()
 	ssh_connect_no_shell('show version')
 	ssh_connect_no_shell('dir')
 
