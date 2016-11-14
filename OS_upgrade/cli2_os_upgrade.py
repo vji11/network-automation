@@ -41,7 +41,6 @@ def ssh_connect_no_shell(command):
 #check if file is already on the flash
 def check_if_file_present():
 	ssh_connect_no_shell(cmd_dir_file)
-	print '\n'.join(output)
 	if any(image in s for s in output):
 		print '\nThe file you are trying to upload is already there.'
 		print '\nProgram will exit now...'
