@@ -6,7 +6,6 @@ import getpass
 
 #variables
 
-
 device = raw_input('Device to upgrade: ')
 my_vrf = raw_input('VRF: ')
 tftp_server = raw_input('TFTP Server: ')
@@ -16,9 +15,8 @@ md5_sum = raw_input('MD5 Checksum of the image: ')
 myuser = raw_input('Username: ')
 mypass = getpass.getpass('Password: ')
 
-
-cmd_dir_file = 'dir | i ' + image
-cmd_dir = 'dir | i free'
+cmd_dir_file = 'dir | include ' + image
+cmd_dir = 'dir | include free'
 cmd_up = 'copy tftp:'
 cmd_1 = cmd_up + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
 md5_check = "show file " + image + " " + "md5sum"  
@@ -28,9 +26,7 @@ import paramiko
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-
 #check if file is already on the flash
-
 
 ssh.connect(device, port=22, username=myuser, password=mypass)
 stdin, stdout, stder = ssh.exec_command(cmd_dir_file)
