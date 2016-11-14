@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import time
 import os
-import re
 import paramiko
 import getpass
 
@@ -57,16 +56,16 @@ def check_if_enough_space():
 
 #perform the file upload
 def upload_file():
-	cmd_1 = "copy tftp:" + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
-	ssh_connect_no_shell(cmd_1)
+	cmd_upload = "copy tftp:" + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
+	ssh_connect_no_shell(cmd_upload)
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
 	print '\n##### Device Output End #####'
 
 #check if the file upload was succefull
 def check_file_md5sum():
-	md5_check = "show file " + image + " " + "md5sum"
-	ssh_connect_no_shell(md5_check)
+	cmd_md5_check = "show file " + image + " " + "md5sum"
+	ssh_connect_no_shell(cmd_md5_check)
 	if any(md5_sum in s for s in output):
 		print "\nUpload Succesfull. " + "md5 " + md5_sum + " " + "checksum verified."
 	else:
