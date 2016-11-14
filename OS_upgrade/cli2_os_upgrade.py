@@ -56,6 +56,10 @@ def check_if_enough_space():
 		print "\nUpgrade cannot continue due not enough space on the flash."
 		exit()
 
+def upload_file():
+	ssh_connect_no_shell(cmd_1)
+	print '\n'.join(output)
+
 #main program
 def main():
 	print 'Program starting...\n'
@@ -63,6 +67,7 @@ def main():
 	variables1()
 	check_if_file_present()
 	check_if_enough_space()
+	upload_file()
 
 #run main program in main file
 if __name__ == '__main__':
