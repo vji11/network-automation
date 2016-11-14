@@ -29,6 +29,7 @@ def clear_screen():
 
 #define ssh connection function
 def ssh_connect_no_shell(command):
+	global output
 	ssh_no_shell = paramiko.SSHClient()
 	ssh_no_shell.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	ssh_no_shell.connect(device, port=22, username=myuser, password=mypass)
