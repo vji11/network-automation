@@ -58,7 +58,9 @@ def check_if_enough_space():
 
 def upload_file():
 	ssh_connect_no_shell(cmd_1)
+	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
+	print '\n##### Device Output End #####' 
 
 #main program
 def main():
