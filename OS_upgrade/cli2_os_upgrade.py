@@ -50,11 +50,11 @@ def Find(pattern, text):
 def check_if_file_present():
 	ssh_connect_no_shell(cmd_dir_file)
 	if any(image in s for s in output):
-    	print '\nThe file you are trying to upload is already there.'
-    	print 'Program will exit now.'
-        exit()
+		print '\nThe file you are trying to upload is already there.'
+		print 'Program will exit now.'
+		exit()
 	else:
-    	time.sleep(1)
+		time.sleep(1)
 
 #main program
 def main():
