@@ -7,7 +7,7 @@ import getpass
 
 #variables
 def variables1():
-	global device, my_vrf, tftp_server, image, os_size, md5_sum, myuser, mypass, cmd_1, md5_check
+	global device, my_vrf, tftp_server, image, os_size, md5_sum, myuser, mypass
 	device = raw_input('Device to upgrade: ')
 	my_vrf = raw_input('VRF: ')
 	tftp_server = raw_input('TFTP Server: ')
@@ -16,9 +16,7 @@ def variables1():
 	md5_sum = raw_input('MD5 Checksum of the image: ')
 	myuser = raw_input('Username: ')
 	mypass = getpass.getpass('Password: ')
-	cmd_1 = "copy tftp:" + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
-	md5_check = "show file " + image + " " + "md5sum"
-
+	
 #define clear-screen function
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
@@ -59,6 +57,7 @@ def check_if_enough_space():
 
 #perform the file upload
 def upload_file():
+	cmd_1 = "copy tftp:" + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
 	ssh_connect_no_shell(cmd_1)
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
@@ -66,6 +65,7 @@ def upload_file():
 
 #check if the file upload was succefull
 def check_file_md5sum():
+	md5_check = "show file " + image + " " + "md5sum"
 	ssh_connect_no_shell(md5_check)
 	if any(md5_sum in s for s in output):
 		print "\nUpload Succesfull. " + "md5 " + md5_sum + " " + "checksum verified."
