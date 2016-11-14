@@ -4,7 +4,6 @@ import os
 import re
 import paramiko
 import getpass
-import base64
 
 #variables
 def variables1():
@@ -30,6 +29,7 @@ def ssh_connect_no_shell(command):
 	ssh_no_shell = paramiko.SSHClient()
 	ssh_no_shell.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	ssh_no_shell.connect(device, port=22, username=myuser, password=mypass)
+	ssh_no_shell.exec_command('terminal length 0\n')
 	stdin, stdout, stder = ssh_no_shell.exec_command(command)
 	output = stdout.readlines()
 	#print '\n'.join(output)
@@ -75,7 +75,7 @@ def check_file_md5sum():
 #main program
 def main():
 	print 'Program starting...\n'
-	time.sleep(0)
+	time.sleep(1)
 	variables1()
 	check_if_file_present()
 	check_if_enough_space()
