@@ -51,9 +51,9 @@ def check_if_enough_space():
 		if 'bytes' in line:
 			bytes_count = int(line.split()[0].strip('('))
 	if os_size < bytes_count:
-		print "Upgrade can continue. There is enough space free on the disk."
+		print "\nUpgrade can continue. There is enough space free on the disk."
 	else:
-		print "Upgrade cannot continue due not enough space on the flash."
+		print "\nUpgrade cannot continue due not enough space on the flash."
 		exit()
 
 #main program
@@ -66,5 +66,5 @@ def main():
 
 #run main program in main file
 if __name__ == '__main__':
-	clear_screen()
+	#clear_screen()
 	main()
