@@ -33,16 +33,27 @@ def ssh_connect_no_shell(command):
 	ssh_no_shell.connect(device, port=22, username=myuser, password=mypass)
 	stdin, stdout, stder = ssh_no_shell.exec_command(command)
 	output = stdout.readlines()
-	print '\n'.join(output)
+	#print '\n'.join(output)
 	ssh_no_shell.close()
 
+def Find(pattern, text):
+	match = re.search(pattern, text)
+  	if match:
+  		print match.group() + '\n'
+  	else:
+  		print 'Pattern not found in text'
+
+#check if file is already on the flash
+def check_if_file_present():
+	ssh_connect_no_shell(cmd_dir_file)
+	Find(image, output)
+	
 #main program
 def main():
 	print 'Program starting...\n'
-	time.sleep(1)
+	time.sleep(3)
 	variables1()
-	ssh_connect_no_shell('show version')
-	ssh_connect_no_shell('dir')
+	check_if_file_present()
 
 #run main program in main file
 if __name__ == '__main__':
