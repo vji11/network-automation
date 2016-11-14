@@ -8,7 +8,7 @@ import base64
 
 #variables
 def variables1():
-	global device, my_vrf, tftp_server, image, os_size, md5_sum, myuser, mypass, cmd_dir_file, cmd_dir, cmd_up, cmd_1, md5_check
+	global device, my_vrf, tftp_server, image, os_size, md5_sum, myuser, mypass, cmd_1, md5_check
 	device = raw_input('Device to upgrade: ')
 	my_vrf = raw_input('VRF: ')
 	tftp_server = raw_input('TFTP Server: ')
@@ -17,10 +17,7 @@ def variables1():
 	md5_sum = raw_input('MD5 Checksum of the image: ')
 	myuser = raw_input('Username: ')
 	mypass = getpass.getpass('Password: ')
-	cmd_dir_file = 'dir | include ' + image
-	cmd_dir = 'dir | include free'
-	cmd_up = 'copy tftp:'
-	cmd_1 = cmd_up + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
+	cmd_1 = "copy tftp:" + "//" + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
 	md5_check = "show file " + image + " " + "md5sum"
 
 #define clear-screen function
@@ -40,7 +37,7 @@ def ssh_connect_no_shell(command):
 
 #check if file is already on the flash
 def check_if_file_present():
-	ssh_connect_no_shell(cmd_dir_file)
+	ssh_connect_no_shell('dir | include ' + image)
 	if any(image in s for s in output):
 		print '\nThe file you are trying to upload is already there.'
 		print '\nProgram will exit now...'
@@ -48,12 +45,24 @@ def check_if_file_present():
 	else:
 		time.sleep(1)
 
+def check_if_enough_space():
+	ssh_connect_no_shell('dir | include free')
+	for line in output:
+		if 'bytes' in line:
+			bytes_count = int(line.split()[0].strip('('))
+	if os_size < bytes_count:
+		print "Upgrade can continue. There is enough space free on the disk."
+	else:
+		print "Upgrade cannot continue due not enough space on the flash."
+		exit()
+
 #main program
 def main():
 	print 'Program starting...\n'
 	time.sleep(0)
 	variables1()
 	check_if_file_present()
+	check_if_enough_space()
 
 #run main program in main file
 if __name__ == '__main__':
