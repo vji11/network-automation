@@ -8,6 +8,7 @@ import base64
 
 #variables
 def variables1():
+	global device, my_vrf, tftp_server, image, os_size, md5_sum, myuser, mypass, cmd_dir_file, cmd_dir, cmd_up, cmd_1, md5_check
 	device = raw_input('Device to upgrade: ')
 	my_vrf = raw_input('VRF: ')
 	tftp_server = raw_input('TFTP Server: ')
@@ -47,7 +48,7 @@ def Find(pattern, text):
 def check_if_file_present():
 	ssh_connect_no_shell(cmd_dir_file)
 	Find(image, output)
-	
+
 #main program
 def main():
 	print 'Program starting...\n'
