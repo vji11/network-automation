@@ -45,6 +45,7 @@ def check_if_file_present():
 	else:
 		time.sleep(1)
 
+#check if there is enough disk space
 def check_if_enough_space():
 	ssh_connect_no_shell('dir | include free')
 	for line in output:
@@ -56,18 +57,20 @@ def check_if_enough_space():
 		print "\nUpgrade cannot continue due not enough space on the flash."
 		exit()
 
+#perform the file upload
 def upload_file():
 	ssh_connect_no_shell(cmd_1)
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
 	print '\n##### Device Output End #####'
 
+#check if the file upload was succefull
 def check_file_md5sum():
 	ssh_connect_no_shell(md5_check)
 	if any(md5_sum in s for s in output):
-		print "Upload Succesfull. " + "md5 " + md5_sum + " " + "checksum verified."
+		print "\nUpload Succesfull. " + "md5 " + md5_sum + " " + "checksum verified."
 	else:
-		print "Upload Failed. " + "Original Checksum " + md5_sum + " " + "differ from calculated checksum"
+		print "\nUpload Failed. " + "Original Checksum " + md5_sum + " " + "differ from calculated checksum"
 
 #main program
 def main():
@@ -83,3 +86,4 @@ def main():
 if __name__ == '__main__':
 	#clear_screen()
 	main()
+#end
