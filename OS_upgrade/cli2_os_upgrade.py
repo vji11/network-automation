@@ -55,7 +55,7 @@ def check_if_enough_space():
 
 #perform the file upload
 def upload_file():
-	cmd_upload = "copy ftp://"  + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
+	cmd_upload = "copy tftp://"  + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
 	ssh_connect_no_shell(cmd_upload)
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
