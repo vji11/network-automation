@@ -75,7 +75,6 @@ def check_file_md5sum():
 #main program
 def main():
 	print 'Program starting...\n'
-	time.sleep(1)
 	variables1()
 	check_if_file_present()
 	check_if_enough_space()
