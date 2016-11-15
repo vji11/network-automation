@@ -57,6 +57,8 @@ def check_if_enough_space():
 def upload_file():
 	cmd_upload = "copy ftp://cisco:cisco@"  + ftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
 	ssh_connect_no_shell(cmd_upload)
+	time.sleep(1)
+	ssh_connect_no_shell('\ncisco')
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
 	print '\n##### Device Output End #####'
