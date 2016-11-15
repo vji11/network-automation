@@ -83,11 +83,17 @@ def check_file_md5sum():
 def main():
 	print 'Program starting...\n'
 	time.sleep(1)
+	print('<br />')
 	variables1()
+	print('<br />')
 	check_if_file_present()
+	print('<br />')
 	check_if_enough_space()
+	print('<br />')
 	upload_file()
+	print('<br />')
 	check_file_md5sum()
+	print('<br />')
 
 #run main program in main file
 if __name__ == '__main__':
