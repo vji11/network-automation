@@ -5,6 +5,11 @@ cgitb.enable()
 
 form = cgi.FieldStorage()
 
+import time
+import os
+import paramiko
+import getpass
+
 def variables1():
     global device, my_vrf, ftp_server, image, os_size, md5_sum, myuser, mypass
     device = form.getvalue('device')
@@ -20,7 +25,6 @@ print 'Content-type: text/html\r\n\r'
 print '<html>' #start of html output
 
 #program start
-
 
 #define ssh connection function
 def ssh_connect_no_shell(command):
@@ -75,6 +79,7 @@ def check_file_md5sum():
 #main program
 def main():
 	print 'Program starting...\n'
+	time.sleep(1)
 	variables1()
 	check_if_file_present()
 	check_if_enough_space()
