@@ -21,9 +21,6 @@ print '<html>' #start of html output
 
 #program start
 
-#define clear-screen function
-def clear_screen():
-	os.system('cls' if os.name == 'nt' else 'clear')
 
 #define ssh connection function
 def ssh_connect_no_shell(command):
@@ -87,7 +84,6 @@ def main():
 
 #run main program in main file
 if __name__ == '__main__':
-	clear_screen()
 	main()
 #end
  
