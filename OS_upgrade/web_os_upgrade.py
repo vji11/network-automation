@@ -50,6 +50,7 @@ def check_if_file_present():
 #check if there is enough disk space
 def check_if_enough_space():
 	ssh_connect_no_shell('dir | include free')
+	print '\n'.join(output)
 	for line in output:
 		if 'bytes' in line:
 			bytes_count = int(line.split()[0].strip('('))
