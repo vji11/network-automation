@@ -9,7 +9,7 @@ def variables1():
 	global device, my_vrf, ftp_server, image, os_size, md5_sum, myuser, mypass
 	device = raw_input('Device to upgrade: ')
 	my_vrf = raw_input('VRF: ')
-	ftp_server = raw_input('FTP Server: ')
+	tftp_server = raw_input('TFTP Server: ')
 	image = raw_input('Name of the NX-OS file: ')
 	os_size = int(raw_input('Size in bytes of the NX-OS image: '))
 	md5_sum = raw_input('MD5 Checksum of the image: ')
@@ -55,10 +55,8 @@ def check_if_enough_space():
 
 #perform the file upload
 def upload_file():
-	cmd_upload = "copy ftp://cisco:cisco@"  + ftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
+	cmd_upload = "copy ftp://"  + tftp_server + "/" + image + " " + "bootflash:" + " vrf " + my_vrf
 	ssh_connect_no_shell(cmd_upload)
-	time.sleep(1)
-	ssh_connect_no_shell('\ncisco')
 	print '\n##### Device Output Start #####'
 	print '\n'.join(output)
 	print '\n##### Device Output End #####'
