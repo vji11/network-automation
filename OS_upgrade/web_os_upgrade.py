@@ -53,11 +53,11 @@ def check_if_enough_space():
 	for line in output:
 		if 'bytes' in line:
 			bytes_count = int(line.split()[0].strip('('))
-	    if os_size < bytes_count:
-	    	print "\nUpgrade can continue. There is enough space free on the disk."
-	    else:
-	    	print "\nUpgrade cannot continue due not enough space on the flash."
-	    	exit()
+	if os_size < bytes_count:
+		print "\nUpgrade can continue. There is enough space free on the disk."
+	else:
+		print "\nUpgrade cannot continue due not enough space on the flash."
+		exit()
 
 #perform the file upload
 def upload_file():
