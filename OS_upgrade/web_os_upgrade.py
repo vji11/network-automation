@@ -54,6 +54,8 @@ def check_if_enough_space():
 	for line in output:
 		if 'bytes' in line:
 			bytes_count = int(line.split()[0].strip('('))
+			print os_size
+			print bytes_count
 	if os_size < bytes_count:
 		print "\nUpgrade can continue. There is enough space free on the disk."
 	else:
