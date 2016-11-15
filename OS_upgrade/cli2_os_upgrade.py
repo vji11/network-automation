@@ -6,7 +6,7 @@ import getpass
 
 #variables
 def variables1():
-	global device, my_vrf, tftp_server, image, os_size, md5_sum, myuser, mypass
+	global device, my_vrf, ftp_server, image, os_size, md5_sum, myuser, mypass
 	device = raw_input('Device to upgrade: ')
 	my_vrf = raw_input('VRF: ')
 	ftp_server = raw_input('FTP Server: ')
