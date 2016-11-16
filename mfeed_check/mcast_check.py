@@ -17,8 +17,8 @@ print '<html>' #start of html output
 
 import paramiko
 import base64
-b64pass = base64.b64decode("c29sYXJweXRob24")
-b64usr = base64.b64decode("M0QzN3ZnSjE4K1pX")
+b64usr = base64.b64decode("c29sYXJweXRob24=")
+b64pass = base64.b64decode("M0QzN3ZnSjE4K1pX")
 mroute_check = "show ip mroute vrf vrf-video | i 1/1"
 mydeviceA = '10.149.132.205'
 mydeviceB = '10.149.132.206'
