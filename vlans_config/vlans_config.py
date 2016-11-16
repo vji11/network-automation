@@ -4,8 +4,6 @@ import os
 import paramiko
 import getpass
 
-
-
 def args():
 	parser = argparse.ArgumentParser(description='Python Program to configure Cisco switches.')
 	parser.add_argument('-f', '--hosts', help='Specify a hosts file', required=True)
@@ -81,4 +79,5 @@ def main():
 
 if __name__ == '__main__':
 	clear_screen()
+	args()
 	main()
