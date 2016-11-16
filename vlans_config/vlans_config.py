@@ -100,10 +100,10 @@ def yes_no():
         char = getch()
         if char.lower() == "y":
             print char
+            clear_screen()
             connect()
         else:
-            print 'Program End.'
-            break	
+            main_menu()
 
 # Welcome page function
 def main_menu():
