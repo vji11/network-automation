@@ -35,6 +35,9 @@ def press_return():
     print '\n\nPress enter to go back\n'
     raw_input(' >> ')
 
+def prog_exit():
+    sys.exit()
+
 
 def sh_host_list():
     hosts = open(hosts_file, 'r')
