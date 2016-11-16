@@ -23,7 +23,7 @@ def clear_screen():
 
 def configure():
 	for cmds in vlan_cfg:
-	print '\t*** Sending: ' + cmds + ' ***'
+		print '\t*** Sending: ' + cmds + ' ***'
 
 
 
