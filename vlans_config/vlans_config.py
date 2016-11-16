@@ -171,6 +171,7 @@ def connect():
                     time.sleep(1)
                     cmds_rtr()
                     remote_conn.send(parsed_cmds)
+                    print '\n'.join(output)
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
