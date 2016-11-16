@@ -165,7 +165,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
-                    remote_conn.send(commands)
+                    remote_conn.send(cmds_trt)
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
