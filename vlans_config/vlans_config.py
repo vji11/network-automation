@@ -88,7 +88,7 @@ def test_cmds():
 def main():
 	print 'Program starting...\n'
 	time.sleep(0)
-	test_cmds()
+	main_menu()
 
 if __name__ == '__main__':
 	args()
