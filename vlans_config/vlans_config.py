@@ -142,11 +142,14 @@ def creds():
 def push_config():
 	fo = open(commands_file, 'r') 
 	commands = fo.readlines()
-	for line in vlan_cfg:
-		print '\t*** Sending: ' + line.strip()
-		remote_conn.send(line + '\n')
-		time.sleep(.5)
-		end_write()
+	#for line in commands:
+		#print '\t*** Sending: ' + line.strip()
+	remote_conn.send(line[0])
+	remote_conn.send(line[1])
+	remote_conn.send(line[2])
+	remote_conn.send(line[3])
+	time.sleep(.5)
+	end_write()
 
 # Perform connection to the device and call SSH shell 
 def connect():
