@@ -9,7 +9,7 @@ import sys
 import time
 
 def args():
-	parser = argparse.ArgumentParser(description='Python Program to configure Cisco switches.\nAuthor: Valentin Jieanu\nvalentin.jieanu@gmail.com')
+	parser = argparse.ArgumentParser(description='Python Program to configure Cisco switches. Use with care.')
 	parser.add_argument('--hosts', help='Specify a hosts file', required=True)
 	arg = vars(parser.parse_args())
 	global hosts_file, vlan_cfg
