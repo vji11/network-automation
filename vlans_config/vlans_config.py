@@ -140,9 +140,9 @@ def creds():
 def push_config():
 	commands = open(commands_file, 'r') 
 	for snd_cmd in commands:
-		print '\t*** Sending: ' + snd_cmd + ' ***'
+		print '\t*** Sending: ' + snd_cmd
 		remote_conn.send(snd_cmd + '\n')
-		time.sleep(.5)
+		time.sleep(2)
 		end_write()
 
 # Perform connection to the device and call SSH shell 
@@ -181,9 +181,6 @@ def connect():
                     time.sleep(1)
                     push_config()
                     print '\t*** Device Successfully configured ***'
-                    f = open('logg.txt', 'a')
-                    f.write(output)
-                    f.close()
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
