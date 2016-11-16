@@ -25,7 +25,7 @@ def args():
 		'main_menu': main_menu,
 		'1': sh_host_list,
 		'2': sh_commands_list,
-		'3': yes_no,
+		'3': connect,
 		'0': prog_exit}
 
 '''Define menus and menu calls and menu navigation'''
