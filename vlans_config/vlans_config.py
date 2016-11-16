@@ -54,7 +54,7 @@ def exec_menu(menu_actions, menu_return, choice):
 def prog_exit():
     sys.exit()
 
- def enter_config_mode():
+def enter_config_mode():
 	print '\t*** Entering configure terminal mode *** \n'
 	remote_conn.send('conf t\n')
 	time.sleep(1)
