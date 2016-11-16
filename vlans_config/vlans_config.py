@@ -96,16 +96,58 @@ def main_menu():
 # Ask user for username and password for the devices
 def creds():
 	global myuser, mypass
-	myuser = raw_input('Username: ')
-	mypass = getpass.getpass('Password: ')
+	username = raw_input('Username: ')
+	password = getpass.getpass('Password: ')
 
 # Perform connection to the device and call SSH shell 
 def connect():
-	print ("connecting")
+    creds()
+    global remote_conn
+    global host
+    if os.path.isfile(hosts_file):
+        myfile = open(hosts_file, 'r')
+        for ip in myfile:
+            client = paramiko.SSHClient()
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            remote_conn = ()
+            ip = ip.strip('\n')
+            host = ip
+            print_host = host
+            print_host = print_host.replace('\n', '')
+            try:
+                print '\n----- Connecting to %s -----\n' % print_host
+                client.connect(host,username=username,password=password,timeout=5)
+                print '\t*** SSH session established with %s ***' % print_host
+                remote_conn = client.invoke_shell()
+                output = remote_conn.recv(1000)
+                time.sleep(1)
+                if '#' not in output:
+                    remote_conn.send('en\n')
+                    time.sleep(1)
+                    print '\t*** Sending Enable Password ***'
+                    remote_conn.send(en_password)
+                    remote_conn.send('\n')
+                    time.sleep(1)
+                    output = remote_conn.recv(1000)
+                if '#' in output:
+                    print '\t*** Successfully Entered Enable Mode ***'
+                    remote_conn.send('terminal length 0\n')
+                    time.sleep(1)
+                    #if you want to configure the device from this menu enter the commands here.
+                else:
+                    print '\t*** Incorrect Enable Password ***'
+            except paramiko.SSHException:
+                print '\t*** Authentication Failed ***'
+            except socket.error:
+                print '\t*** %s is Unreachable ***' % host
+            client.close()
 
-def test_cmds():
-	for cmds in vlan_cfg:
-		print '\t' + cmds
+
+
+
+#def test_cmds():
+#	for cmds in vlan_cfg:
+#		print '\t' + cmds
 
 # main program run parameters
 def main():
