@@ -173,7 +173,7 @@ def connect():
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
                     cmds_rtr()
-                    remote_conn.send(parsed_cmds)
+                    remote_conn.send(parsed_cmds + '\n')
                     print '\t*** Device Successfully configured ***'
                     f = open('logg.txt', 'a')
                     f.write(output)
