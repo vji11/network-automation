@@ -32,6 +32,26 @@ def ssh_connect(commands):
 	print '\n'.join(output)
 	ssh.close()
 
+def config_vlans():
+	cmd = commands
+	ssh_connect(cmd)
+	print '\n##### Device Output Start #####'
+	print '\n'.join(output)
+	print '\n##### Device Output End #####'	
+
+
+#main program
+def main():
+	print 'Program starting...\n'
+	time.sleep(1)
+	variables1()
+	config_vlans()
+
+#run main program in main file
+if __name__ == '__main__':
+	clear_screen()
+	main()
+#end
 
 
 
