@@ -79,7 +79,7 @@ def sh_commands_list():
 	main_menu()
 
 # Interfactive yes_no menu to continue with the configuration
-def yes_no(do_stuff):
+def yes_no():
     try:
         from msvcrt import getch
     except ImportError:
