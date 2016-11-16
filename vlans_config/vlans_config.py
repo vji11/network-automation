@@ -141,13 +141,13 @@ def creds():
 # Parse the commands list and store it globaly
 def push_config():
 	fo = open(commands_file, 'r') 
-	commands = fo.readlines()
-	#for line in commands:
-		#print '\t*** Sending: ' + line.strip()
-	remote_conn.send(line[0])
-	remote_conn.send(line[1])
-	remote_conn.send(line[2])
-	remote_conn.send(line[3])
+	cmds = fo.readlines()
+	for line in cmds:
+		print '\t*** Sending: ' + line.strip()
+	remote_conn.send(cmds[0])
+	remote_conn.send(cmds[1])
+	remote_conn.send(cmds[2])
+	remote_conn.send(cmds[3])
 	time.sleep(.5)
 	end_write()
 
