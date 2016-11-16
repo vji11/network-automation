@@ -4,10 +4,8 @@ import os
 import paramiko
 import getpass
 
-tacacs = '.tacacslogin'
-commands = 'commands.txt'
-hostsfile = 'hosts.txt'
-devicetype = "ios"
+commands = open('commands.txt', 'r')
+device = open('hosts.txt', 'r')
 verbose = "yes"
 
 # Variables
