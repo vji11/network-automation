@@ -4,10 +4,8 @@ import os
 import paramiko
 import getpass
 
-commands = open('commands.txt', 'r')
-device = open('hosts.txt', 'r')
-verbose = "yes"
-
+commands = open("commands.txt", "r")
+device = open("hosts.txt", "r")
 
 def variables1():
 	global myuser, mypass
@@ -43,10 +41,3 @@ def main():
 if __name__ == '__main__':
 	clear_screen()
 	main()
-
-
-
-
-
-
-
