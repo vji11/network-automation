@@ -13,16 +13,36 @@ def args():
 	parser.add_argument('--hosts', help='Specify a hosts file', required=True)
 	parser.add_argument('--commands', help='Specify a commands file', required=True)
 	arg = vars(parser.parse_args())
-	global hosts_file, commands_file, vlan_cfg
+	global main_menu_actions, hosts_file, commands_file, vlan_cfg
 	hosts_file = arg['hosts']
 	commands_file = arg['commands']
 	vlan_cfg = ['configure terminal',
 			    'vlan 3232',
 			    'name vlan-name',
 			    'exit']
+	main_menu_actions = {
+		'main_menu': main_menu,
+		'1': sh_host_list,
+		'2': sh_commands_list,
+		'3': connect,
+		'0': prog_exit}
 
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
+
+def main_menu():
+    clear_screen()
+    menu_actions = main_menu_actions
+    menu_return = main_menu
+    print '\n\n'
+    print '\n\n\tPlease choose an option from the following:\n\n'
+    print '\t\t1. Show IP addresses in list file\n'
+    print '\t\t2. Show the commands to be pushed to the devices\n'
+    print '\t\t3. Perform the configuration'
+    print '\n\n\t\t0. Quit'
+    choice = raw_input('\n\n >> ')
+    exec_menu(menu_actions, menu_return, choice)
+    return  
 
 def creds():
 	global myuser, mypass
