@@ -18,7 +18,7 @@ def args():
 	hosts_file = arg['hosts']
 	commands_file = arg['commands']
 	vlan_cfg = ['configure terminal',
-			    'vlan 3232',
+			    'vlan 219',
 			    'name vlan-name',
 			    'exit']
 	main_menu_actions = {
@@ -143,10 +143,11 @@ def creds():
 
 # Parse the commands list and store it globaly
 def push_config():
-	commands = open(commands_file, 'r') 
+	fo = open(commands_file, 'r') 
+	commands = fo.readlines()
 	for line in commands:
 		print '\t*** Sending: ' + line.strip()
-		remote_conn.send(line.strip() + '\n')
+		remote_conn.send(line.strip())
 		time.sleep(.5)
 		end_write()
 
