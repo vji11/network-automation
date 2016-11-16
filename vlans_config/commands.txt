@@ -1,2 +1,5 @@
-sh ver
-sh ip int br
+conf t
+vlan 3030
+name MCAST Marina01 Feed A Primary
+exit
+copy running start
