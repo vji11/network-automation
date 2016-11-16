@@ -72,14 +72,18 @@ def sh_commands_list():
 	commands = open(commands_file, 'r')
 	print '\n\n\tCommands in file: \n'
 	for x in commands:
-		#print '\t\t' + x.strip('\n')
-		#print x.strip('\n')
-		cmds_trt = x.strip('\n')
-		print cmds_trt
+		print '\t\t' + x.strip('\n')
 	print '\n\n'
 	commands.close()
 	press_return()
 	main_menu()
+
+# Parse the commands list and store it globaly
+def cmds_rtr():
+	global parsed_cmds
+	cmds = open(commands_file, 'r')
+	for x in cmds:
+		parsed_cmds = x.strip('\n')
 
 # Interfactive yes_no menu to continue with the configuration
 def yes_no():
@@ -165,7 +169,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
-                    remote_conn.send(cmds_trt)
+                    remote_conn.send(parsed_cmds)
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
