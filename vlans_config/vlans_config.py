@@ -102,6 +102,7 @@ def yes_no():
             print char
             clear_screen()
             connect()
+            print '\n\n Program finished. Press enter to return to main menu.'
         else:
             main_menu()
 
