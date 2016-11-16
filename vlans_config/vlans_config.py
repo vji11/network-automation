@@ -8,6 +8,7 @@ import re
 import sys
 import time
 
+# Define command line arguments and global variables
 def args():
 	parser = argparse.ArgumentParser(description='Python Program to configure Cisco switches. Use with care.')
 	parser.add_argument('--hosts', help='Specify a hosts file', required=True)
@@ -27,14 +28,19 @@ def args():
 		'3': connect,
 		'0': prog_exit}
 
+'''Define menus and menu calls and menu navigation'''
+
+# Clear screen function	
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
 
+# Navigate to Main Menu function
 def press_return():
     print '\n\n(Make sure to resync the device to see any configuration changes)'
     print '\n\nPress enter to go back\n'
     raw_input(' >> ')
 
+# Call menu items function
 def exec_menu(menu_actions, menu_return, choice):
 	clear_screen()
 	try:
@@ -44,10 +50,13 @@ def exec_menu(menu_actions, menu_return, choice):
 		time.sleep(1)
 		menu_return()    
 
+# Exit program function
 def prog_exit():
     sys.exit()
 
+''' Define menu actions '''
 
+# Show what host file contains
 def sh_host_list():
     hosts = open(hosts_file, 'r')
     print '\n\n\tHosts in file: \n'
@@ -58,6 +67,7 @@ def sh_host_list():
     press_return()
     main_menu()
 
+# Show what commands file contains
 def sh_commands_list():
 	commands = open(commands_file, 'r')
 	print '\n\n\tCommands in file: \n'
@@ -68,6 +78,7 @@ def sh_commands_list():
 	press_return()
 	main_menu()
 
+# Welcome page function
 def main_menu():
     clear_screen()
     menu_actions = main_menu_actions
@@ -82,11 +93,13 @@ def main_menu():
     exec_menu(menu_actions, menu_return, choice)
     return  
 
+# Ask user for username and password for the devices
 def creds():
 	global myuser, mypass
 	myuser = raw_input('Username: ')
 	mypass = getpass.getpass('Password: ')
 
+# Perform connection to the device and call SSH shell 
 def connect():
 	print ("connecting")
 
@@ -94,11 +107,13 @@ def test_cmds():
 	for cmds in vlan_cfg:
 		print '\t' + cmds
 
+# main program run parameters
 def main():
-	print 'Program starting...\n'
-	time.sleep(0)
+	print 'Program starting... please wait\n'
+	time.sleep(5)
 	main_menu()
 
+# main program run from main file
 if __name__ == '__main__':
 	args()
 	main()
