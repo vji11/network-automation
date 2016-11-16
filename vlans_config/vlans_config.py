@@ -95,7 +95,7 @@ def main_menu():
 
 # Ask user for username and password for the devices
 def creds():
-	global myuser, mypass
+	global username, password
 	username = raw_input('Username: ')
 	password = getpass.getpass('Password: ')
 
@@ -142,9 +142,6 @@ def connect():
                 print '\t*** %s is Unreachable ***' % host
             client.close()
 
-
-
-
 #def test_cmds():
 #	for cmds in vlan_cfg:
 #		print '\t' + cmds
@@ -152,7 +149,7 @@ def connect():
 # main program run parameters
 def main():
 	print 'Program starting... please wait\n'
-	time.sleep(5)
+	time.sleep(0)
 	main_menu()
 
 # main program run from main file
