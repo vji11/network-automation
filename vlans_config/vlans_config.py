@@ -54,6 +54,11 @@ def exec_menu(menu_actions, menu_return, choice):
 def prog_exit():
     sys.exit()
 
+ def enter_config_mode():
+	print '\t*** Entering configure terminal mode *** \n'
+	remote_conn.send('conf t\n')
+	time.sleep(1)
+
 # Finish device configuration and save
 def end_write():
     remote_conn.send('end\n')
@@ -179,6 +184,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
+                    enter_config_mode()
                     push_config()
                     print '\t*** Device Successfully configured ***'
                 else:
