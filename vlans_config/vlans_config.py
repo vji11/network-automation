@@ -1,8 +1,12 @@
 #!/usr/bin/env python
-import time
 import os
+import argparse
 import paramiko
 import getpass
+import socket
+import re
+import sys
+import time
 
 def args():
 	parser = argparse.ArgumentParser(description='Python Program to configure Cisco switches.')
