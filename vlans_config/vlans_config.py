@@ -64,9 +64,6 @@ def end_write():
     remote_conn.send('end\n')
     remote_conn.send('wr me\n')    
 
-# Write output to file
-
-
 ''' Define menu actions '''
 
 # Show what host file contains
@@ -145,7 +142,7 @@ def creds():
 def push_config():
 	fo = open(commands_file, 'r') 
 	commands = fo.readlines()
-	for line in commands:
+	for line in vlan_cfg:
 		print '\t*** Sending: ' + line.strip()
 		remote_conn.send(line + '\n')
 		time.sleep(.5)
