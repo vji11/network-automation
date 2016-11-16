@@ -147,7 +147,7 @@ def push_config():
 	for snd_cmd in commands:
 		print '\t*** Sending: ' + snd_cmd
 		remote_conn.send(snd_cmd + '\n')
-		time.sleep(2)
+		time.sleep(.5)
 		end_write()
 
 # Perform connection to the device and call SSH shell 
@@ -186,7 +186,7 @@ def connect():
                     time.sleep(1)
                     enter_config_mode()
                     push_config()
-                    print '\t*** Device Successfully configured ***'
+                    print '\t\n*** Device Successfully configured ***'
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
