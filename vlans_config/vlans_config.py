@@ -61,7 +61,7 @@ def sh_host_list():
 def sh_commands_list():
 	commands = open(commands_file, 'r')
 	print '\n\n\tCommands in file: \n'
-	for x in hosts:
+	for x in commands:
 		print '\t\t' + x.strip('\n')
 	print '\n\n'
 	commands.close()
