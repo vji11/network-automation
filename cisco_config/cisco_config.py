@@ -167,16 +167,6 @@ def main_menu():
     menu_actions = main_menu_actions
     menu_return = main_menu
     print '\n\n'
-    print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
-    print '\t*                                                           *'
-    print '\t*                                                           *'
-    print '\t*   Welcome to Dans Cisco Access Switch Auto Configurator   *'
-    print '\t*                                                           *'
-    print '\t*                                                           *'
-    print '\t*                          Developed by Daniel Gilbertson   *'
-    print '\t*                                                           *'
-    print '\t*                                                           *'
-    print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
     print '\n\n\tPlease choose an option from the following:\n\n'
     print '\t\t1. Show IP addresses in list file\n'
     print '\t\t2. Show current vlan settings\n'
@@ -271,16 +261,6 @@ def connect():
 def creds():
     global username, password, en_password
     print '\n\n'
-    print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
-    print '\t*                                                           *'
-    print '\t*                                                           *'
-    print '\t*   Welcome to Dans Cisco Access Switch Auto Configurator   *'
-    print '\t*                                                           *'
-    print '\t*                                                           *'
-    print '\t*                          Developed by Daniel Gilbertson   *'
-    print '\t*                                                           *'
-    print '\t*                                                           *'
-    print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
     print '\n\n Please enter username, password, and enable password:\n'
     print '\t(Note that Username is the only one that shows ' \
           'up while typing, passwords are not shown.)\n\n'

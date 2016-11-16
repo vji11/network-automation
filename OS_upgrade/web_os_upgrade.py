@@ -1,8 +1,8 @@
 #!/usr/bin/python
 import cgi
 import cgitb
-cgitb.enable()
 
+cgitb.enable()
 form = cgi.FieldStorage()
 
 import time
