@@ -95,7 +95,7 @@ def main_menu():
 
 # Ask user for username and password for the devices
 def creds():
-	global username, password
+	global username, password, en_password
 	username = raw_input('Username: ')
 	password = getpass.getpass('Password: ')
 	en_password = getpass.getpass('Enable Password(may not be necesary):')
