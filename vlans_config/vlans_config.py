@@ -30,6 +30,32 @@ def args():
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
 
+def press_return():
+    print '\n\n(Make sure to resync the device to see any configuration changes)'
+    print '\n\nPress enter to go back\n'
+    raw_input(' >> ')
+    	
+
+def sh_host_list():
+    hosts = open(hosts_file, 'r')
+    print '\n\n\tHosts in file: \n'
+    for x in hosts:
+        print '\t\t' + x.strip('\n')
+    print '\n\n'
+    hosts.close()
+    press_return()
+    main_menu()
+
+def sh_commands_list():
+	commands = open(commands_file, 'r')
+    print '\n\n\tCommands in file: \n'
+    for x in hosts:
+        print '\t\t' + x.strip('\n')
+    print '\n\n'
+    commands.close()
+    press_return()
+    main_menu()
+
 def main_menu():
     clear_screen()
     menu_actions = main_menu_actions
