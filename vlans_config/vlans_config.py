@@ -98,6 +98,7 @@ def creds():
 	global username, password
 	username = raw_input('Username: ')
 	password = getpass.getpass('Password: ')
+	en_password = getpass.getpass('Enable Password(may not be necesary):')
 
 # Perform connection to the device and call SSH shell 
 def connect():
