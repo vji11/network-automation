@@ -82,6 +82,5 @@ def main():
 	test_cmds()
 
 if __name__ == '__main__':
-	clear_screen()
 	args()
 	main()
