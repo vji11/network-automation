@@ -80,7 +80,6 @@ def sh_commands_list():
 
 # Parse the commands list and store it globaly
 def cmds_rtr():
-	global parsed_cmds
 	cmds = open(commands_file, 'r')
 	for x in cmds:
 		parsed_cmds = x.strip('\n')
@@ -169,6 +168,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
+                    cmds_rtr()
                     remote_conn.send(parsed_cmds)
                 else:
                     print '\t*** Incorrect Enable Password ***'
