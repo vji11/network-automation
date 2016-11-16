@@ -75,6 +75,8 @@ def creds():
 	myuser = raw_input('Username: ')
 	mypass = getpass.getpass('Password: ')
 
+def connect():
+
 def test_cmds():
 	for cmds in vlan_cfg:
 		print '\t' + cmds
