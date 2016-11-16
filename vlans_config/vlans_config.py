@@ -11,13 +11,13 @@ import time
 def args():
 	parser = argparse.ArgumentParser(description='Python Program to configure Cisco switches.')
 	parser.add_argument('-f', '--hosts', help='Specify a hosts file', required=True)
-	arg = vars(parser.parse_args()) 
+	arg = vars(parser.parse_args())
+	global hosts_file, vlan_cfg
 	hosts_file = arg['hosts']
 	vlan_cfg = ['configure terminal',
 			    'vlan 3232',
 			    'name vlan-name',
 			    'exit']
-	global hosts_file, vlan_cfg
 
 def creds():
 	global myuser, mypass
