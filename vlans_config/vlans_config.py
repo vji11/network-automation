@@ -4,10 +4,11 @@ import os
 import paramiko
 import getpass
 
-commands = open("commands.txt", "r")
-device = open("hosts.txt", "r")
+commands_file = open("commands.txt", "r")
+device_file = open("hosts.txt", "r")
 
-def variables1():
+
+def creds():
 	global myuser, mypass
 	myuser = raw_input('Username: ')
 	mypass = getpass.getpass('Password: ')
@@ -15,28 +16,17 @@ def variables1():
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
 
-def ssh_connect(commands):
-	global output
-	ssh = paramiko.SSHClient()
-	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-	ssh.connect(device, port=22, username=myuser, password=mypass)
-	ssh.exec_command('terminal length 0\n')
-	stdin, stdout, stder = ssh.exec_command(commands)
-	output = stdout.readlines()
-	ssh.close()
-
-def config_vlans():
-	cmd = commands
-	ssh_connect(cmd)
-	print '\n##### Device Output Start #####'
-	print '\n'.join(output)
-	print '\n##### Device Output End #####'	
+def pf():
+	with open("commands.txt", "r") as f:
+		text = f.readlines()
+		for line in text:
+			print line
+	f.close()
 
 def main():
 	print 'Program starting...\n'
-	time.sleep(1)
-	print device
-	print commands
+	time.sleep(0)
+	pf()
 
 if __name__ == '__main__':
 	clear_screen()
