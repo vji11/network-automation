@@ -19,7 +19,6 @@ def are_you_sure(do_stuff):
             return ch
     print '\n\n'
     print '\n\n\tYou are about to modify the switches configuration.\n\n'
-    print '\tBefore running the program make sure you revied the devices list and the commands list\n'
     print '\n\n\t\tAre you sure you want to continue? y/n'
     while True:
         char = getch()
