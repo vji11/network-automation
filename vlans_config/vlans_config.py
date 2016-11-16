@@ -69,6 +69,7 @@ def sh_host_list():
 
 # Show what commands file contains
 def sh_commands_list():
+	global commands
 	commands = open(commands_file, 'r')
 	print '\n\n\tCommands in file: \n'
 	for x in commands:
@@ -162,7 +163,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
-                    #if you want to configure the device from this menu define another function for the commands and call it here
+                    remote.conn_send(commands)
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
