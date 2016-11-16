@@ -80,6 +80,7 @@ def sh_commands_list():
 
 # Parse the commands list and store it globaly
 def cmds_rtr():
+	global parsed_cmds
 	cmds = open(commands_file, 'r')
 	for x in cmds:
 		parsed_cmds = x.strip('\n')
