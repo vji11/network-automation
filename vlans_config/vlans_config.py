@@ -54,6 +54,11 @@ def exec_menu(menu_actions, menu_return, choice):
 def prog_exit():
     sys.exit()
 
+# Finish device configuration and save
+def end_write():
+    remote_conn.send('end\n')
+    remote_conn.send('wr me\n')    
+
 # Write output to file
 
 
@@ -81,14 +86,7 @@ def sh_commands_list():
 	press_return()
 	main_menu()
 
-# Parse the commands list and store it globaly
-def cmds_rtr():
-	global parsed_cmds
-	cmds = open(commands_file, 'r')
-	for x in cmds:
-		parsed_cmds = x.strip('\n')
-
-# Interfactive yes_no menu to continue with the configuration
+ # Interfactive yes_no menu to continue with the configuration
 def yes_no():
     try:
         from msvcrt import getch
@@ -138,6 +136,15 @@ def creds():
 	password = getpass.getpass('Password: ')
 	en_password = getpass.getpass('Enable Password(may not be necesary):')
 
+# Parse the commands list and store it globaly
+def push_config():
+	commands = open(commands_file, 'r') 
+	for snd_cmd in commands:
+		print '\t*** Sending: ' + snd_cmd + ' ***'
+		remote_conn.send(snd_cmd + '\n')
+		time.sleep(.5)
+		end_write()
+
 # Perform connection to the device and call SSH shell 
 def connect():
     creds()
@@ -172,8 +179,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
-                    cmds_rtr()
-                    remote_conn.send(parsed_cmds + '\n')
+                    push_config()
                     print '\t*** Device Successfully configured ***'
                     f = open('logg.txt', 'a')
                     f.write(output)
