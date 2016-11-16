@@ -25,7 +25,7 @@ def args():
 		'main_menu': main_menu,
 		'1': sh_host_list,
 		'2': sh_commands_list,
-		'3': connect,
+		'3': yes_no,
 		'0': prog_exit}
 
 '''Define menus and menu calls and menu navigation'''
@@ -77,6 +77,33 @@ def sh_commands_list():
 	commands.close()
 	press_return()
 	main_menu()
+
+# Interfactive yes_no menu to continue with the configuration
+def yes_no(do_stuff):
+    try:
+        from msvcrt import getch
+    except ImportError:
+        def getch():
+            import sys, tty, termios
+            fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(fd)
+            try:
+                tty.setraw(sys.stdin.fileno())
+                ch = sys.stdin.read(1)
+            finally:
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            return ch
+    print '\n\n'
+    print '\n\n\tYou are about to modify the switches configuration.\n\n'
+    print '\n\n\t\tAre you sure you want to continue? y/n'
+    while True:
+        char = getch()
+        if char.lower() == "y":
+            print char
+            connect()
+        else:
+            print 'Program End.'
+            break	
 
 # Welcome page function
 def main_menu():
@@ -134,7 +161,7 @@ def connect():
                     print '\t*** Successfully Entered Enable Mode ***'
                     remote_conn.send('terminal length 0\n')
                     time.sleep(1)
-                    #if you want to configure the device from this menu enter the commands here.
+                    #if you want to configure the device from this menu define another function for the commands and call it here
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
