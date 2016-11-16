@@ -175,7 +175,7 @@ def connect():
                     cmds_rtr()
                     remote_conn.send(parsed_cmds)
                     print '\t*** Device Successfully configured ***'
-                    f = open('logg.txt', 'w')
+                    f = open('logg.txt', 'a')
                     f.write(output)
                     f.close()
                 else:
