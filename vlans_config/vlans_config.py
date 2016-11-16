@@ -35,6 +35,15 @@ def press_return():
     print '\n\nPress enter to go back\n'
     raw_input(' >> ')
 
+def exec_menu(menu_actions, menu_return, choice):
+	clear_screen()
+	try:
+		menu_actions[choice]()
+	except KeyError:
+		print 'Invalid Selection, Please Try Again.\n'
+		time.sleep(1)
+		menu_return()    
+
 def prog_exit():
     sys.exit()
 
