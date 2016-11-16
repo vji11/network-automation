@@ -54,6 +54,9 @@ def exec_menu(menu_actions, menu_return, choice):
 def prog_exit():
     sys.exit()
 
+# Write output to file
+
+
 ''' Define menu actions '''
 
 # Show what host file contains
@@ -171,7 +174,10 @@ def connect():
                     time.sleep(1)
                     cmds_rtr()
                     remote_conn.send(parsed_cmds)
-                    print '\n'.join(output)
+                    print '\t*** Device Successfully configured ***'
+                    f = open('logg.txt', 'w')
+                    f.write(output)
+                    f.close()
                 else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
