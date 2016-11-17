@@ -191,7 +191,7 @@ def connect():
 					push_config()
 					end_write_nxos()
 					print '\t\n*** Device Successfully configured ***'
-				else:
+                else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
                 print '\t*** Authentication Failed ***'
