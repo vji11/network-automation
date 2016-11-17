@@ -33,7 +33,6 @@ def clear_screen():
 
 # Navigate to Main Menu function
 def press_return():
-    print '\n\n(Make sure to resync the device to see any configuration changes)'
     print '\n\nPress enter to go back\n'
     raw_input(' >> ')
 
@@ -183,24 +182,6 @@ def push_config():
 		time.sleep(.5)
 	fo.close()
 	
-def save_config_ios():
-	fo = open(commands_file, 'r') 
-	for snd_cmd in fo:
-		print '\t*** Saving configuration ***' 
-		remote_conn.send('end\n')
-		remote_conn.send('wr mem\n')
-		time.sleep(.5)
-	fo.close()	
-
-def save_config_nxos():
-	fo = open(commands_file, 'r') 
-	for snd_cmd in fo:
-		print '\t*** Saving configuration ***' 
-		remote_conn.send('end\n')
-		remote_conn.send('copy run start\n')
-		time.sleep(.5)
-	fo.close()	
-	
 # Perform connection to the device and call SSH shell 
 def connect():
     creds()
@@ -245,7 +226,7 @@ def connect():
             except socket.error:
                 print '\t*** %s is Unreachable ***' % host
             client.close()
-
+			
 # main program run parameters
 def main():
 	print 'Program starting... please wait\n'
