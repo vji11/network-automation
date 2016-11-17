@@ -38,7 +38,7 @@ def press_return():
 def end_write_nxos():
 	remote_conn.send('end\n')
 	remote_conn.send('copy run start\n')
-	remote_conn.send('\x0d')	
+	remote_conn.send('\n')
 
 # Call menu items function
 def exec_menu(menu_actions, menu_return, choice):
