@@ -138,7 +138,7 @@ def creds():
 def push_config():
 	fo = open(commands_file, 'r') 
 	for snd_cmd in fo:
-		print '\t*** Sending: ' + line.strip()
+		print '\t*** Sending: ' + snd_cmd.strip()
 		fo.close()
 		remote_conn.send(snd_cmd + '\n')
 		time.sleep(.5)
