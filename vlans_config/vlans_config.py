@@ -115,30 +115,30 @@ def yes_no(call_function):
 
 # Welcome page function
 def main_menu():
-    clear_screen()
-    menu_actions = main_menu_actions
-    menu_return = main_menu
-    print '\n\n'
-    print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
-    print '\t*      Python Program for bulk network configuration        *'
-    print '\t*                                                           *'
-    print '\t*    Is is recomended to use this script to automate        *'
-    print '\t*    simple and repetitive configuration tasks.             *'
-    print '\t*                                                           *'
-    print '\t*    It is not recommended to use this program for          *'
-    print '\t*    complex tasks, like OSPF routing changes               *'
-    print '\t*                                                           *'
-    print '\t*                               Author: Valentin Jieanu     *'
-    print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
-    print '\n\n\tPlease choose an option from the following:\n\n'
-    print '\t\t1. Show IP addresses in list file\n'
-    print '\t\t2. Show the commands to be pushed to the devices\n'
-    print '\t\t3. Perform the configuration'
+	clear_screen()
+	menu_actions = main_menu_actions
+	menu_return = main_menu
+	print '\n\n'
+	print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
+	print '\t*      Python Program for bulk network configuration        *'
+	print '\t*                                                           *'
+	print '\t*    Is is recomended to use this script to automate        *'
+	print '\t*    simple and repetitive configuration tasks.             *'
+	print '\t*                                                           *'
+	print '\t*    It is not recommended to use this program for          *'
+	print '\t*    complex tasks, like OSPF routing changes               *'
+	print '\t*                                                           *'
+	print '\t*                               Author: Valentin Jieanu     *'
+	print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
+	print '\n\n\tPlease choose an option from the following:\n\n'
+	print '\t\t1. Show IP addresses in list file\n'
+	print '\t\t2. Show the commands to be pushed to the devices\n'
+	print '\t\t3. Perform the configuration'
 	print '\t\t4. Save the configuration'
-    print '\n\n\t\t0. Quit'
-    choice = raw_input('\n\n >> ')
-    exec_menu(menu_actions, menu_return, choice)
-    return  
+	print '\n\n\t\t0. Quit'
+	choice = raw_input('\n\n >> ')
+	exec_menu(menu_actions, menu_return, choice)
+	return  
 
 # Ask user for username and password for the devices
 def creds():
