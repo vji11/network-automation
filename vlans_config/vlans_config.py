@@ -21,7 +21,8 @@ def args():
 		'main_menu': main_menu,
 		'1': sh_host_list,
 		'2': sh_commands_list,
-		'3': yes_no,
+		'3': yes_no(connect),
+		'4': yes_no(save_config),
 		'0': prog_exit}
 
 '''Define menus and menu calls and menu navigation'''
@@ -85,7 +86,7 @@ def sh_commands_list():
 	main_menu()
 	
  # Interfactive yes_no menu to continue with the configuration
-def yes_no():
+def yes_no(call_function):
     try:
         from msvcrt import getch
     except ImportError:
@@ -107,7 +108,7 @@ def yes_no():
         if char.lower() == "y":
             print char
             clear_screen()
-            connect()
+            call_function()
             print '\n\n Program finished. Press enter to return to main menu.'
         else:
             main_menu()
@@ -133,6 +134,7 @@ def main_menu():
     print '\t\t1. Show IP addresses in list file\n'
     print '\t\t2. Show the commands to be pushed to the devices\n'
     print '\t\t3. Perform the configuration'
+	print '\t\t4. Save the configuration'
     print '\n\n\t\t0. Quit'
     choice = raw_input('\n\n >> ')
     exec_menu(menu_actions, menu_return, choice)
@@ -152,7 +154,6 @@ def push_config():
         print '\t*** Sending: ' + line.strip()
         remote_conn.send(line + '\n')
         time.sleep(.5)
-	end_write()
 	fo.close()
 
 # Perform connection to the device and call SSH shell 
