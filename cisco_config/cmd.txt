@@ -1,6 +1,0 @@
-conf t
-vlan 201
-name fasole verde
-exit
-wr
-
