@@ -150,9 +150,10 @@ def push_config():
     fo = open(commands_file, 'r') 
     for line in fo:
         print '\t*** Sending: ' + line.strip()
-        remote_conn.send(line + '\n') + end_write()
-        time.sleep(.5)
-    fo.close()
+        remote_conn.send(line + '\n')
+		time.sleep(.5)
+	end_write()
+	fo.close()
 
 # Perform connection to the device and call SSH shell 
 def connect():
