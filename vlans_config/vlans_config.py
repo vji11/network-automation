@@ -83,6 +83,8 @@ def sh_commands_list():
 	commands.close()
 	press_return()
 	main_menu()
+	
+
 
  # Interfactive yes_no menu to continue with the configuration
 def yes_no():
@@ -139,9 +141,9 @@ def push_config():
 	fo = open(commands_file, 'r') 
 	for snd_cmd in fo:
 		print '\t*** Sending: ' + snd_cmd.strip()
-		fo.close()
 		remote_conn.send(snd_cmd + '\n')
 		time.sleep(.5)
+	fo.close()	
 	end_write()
 
 # Perform connection to the device and call SSH shell 
