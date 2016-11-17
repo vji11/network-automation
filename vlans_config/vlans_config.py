@@ -132,19 +132,19 @@ def yes_no_save():
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
             return ch
 	print '\n\n'
-	print '\n\n\tYou are about to save the switches configuration.\n\n'
-	print '\n\n\tNote that IOS and NX-OS commands differ.\n\n'
-	print '\n\n\tNX-OS uses copy run start.\n\n'
-	print '\n\n\tIOS uses write memory\n\n'
+	print '\tYou are about to save the switches configuration.'
+	print '\tNote that IOS and NX-OS commands differ.'
+	print '\tNX-OS uses copy run start.'
+	print '\tIOS uses write memory'
 	print '\n\n\tFor what kind of OS you need to save the configuration?\n\n'
-	print '\n\n\t\tFor NX-OS press x'
-	print '\n\n\t\tFor IOS press i'
+	print '\tFor NX-OS press x\n'
+	print '\tFor IOS press i'
     while True:
 		char = getch()
-		if char.lower() == "x":
+		if char.lower() == "i":
 			print char
 			clear_screen()
-			save_config_nxos()
+			save_config_ios()
 			print '\n\n Program finished. Press enter to return to main menu. '
 		else:
 			main_menu()
