@@ -22,7 +22,7 @@ def args():
 		'1': sh_host_list,
 		'2': sh_commands_list,
 		'3': yes_no,
-		'4': yes_no,
+		'4': yes_no_save,
 		'0': prog_exit}
 
 '''Define menus and menu calls and menu navigation'''
@@ -57,9 +57,13 @@ def enter_config_mode():
 	time.sleep(1)
 
 # Finish device configuration and save
-def end_write():
+def end_write_ios():
     remote_conn.send('end\n')
-    remote_conn.send('wr mem\n')    
+    remote_conn.send('wr mem\n')
+
+def end_write_nxos():
+	remote_conn.send('end\n')
+	remote_conn.send('copy run start\n')	
 
 ''' Define menu actions '''
 
@@ -112,6 +116,45 @@ def yes_no():
             print '\n\n Program finished. Press enter to return to main menu.'
         else:
             main_menu()
+			
+def yes_no_save():
+    try:
+        from msvcrt import getch
+    except ImportError:
+        def getch():
+            import sys, tty, termios
+            fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(fd)
+            try:
+                tty.setraw(sys.stdin.fileno())
+                ch = sys.stdin.read(1)
+            finally:
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            return ch
+	print '\n\n'
+	print '\n\n\tYou are about to save the switches configuration.\n\n'
+	print '\n\n\tNote that IOS and NX-OS commands differ.\n\n'
+	print '\n\n\tNX-OS uses copy run start.\n\n'
+	print '\n\n\tIOS uses write memory\n\n'
+	print '\n\n\tFor what kind of OS you need to save the configuration?\n\n'
+	print '\n\n\t\tFor NX-OS press x'
+	print '\n\n\t\tFor IOS press i'
+    while True:
+        char = getch()
+        if char.lower() == "x":
+            print char
+            clear_screen()
+            save_config_nxos()
+            print '\n\n Program finished. Press enter to return to main menu.'
+        else:
+            main_menu()
+		if char.lower() == "i":
+			print char
+			clear_screen()
+			save_config_ios()
+			print '\n\n Program finished. Press enter to return to main menu.'
+        else:
+            main_menu()	
 
 # Welcome page function
 def main_menu():
@@ -155,7 +198,23 @@ def push_config():
 		remote_conn.send(snd_cmd + '\n')
 		time.sleep(.5)
 	fo.close()
+	
+def save_config_ios():
+	fo = open(commands_file, 'r') 
+	for snd_cmd in fo:
+		print '\t*** Saving configuration ***' 
+		end_write_ios()
+		time.sleep(.5)
+	fo.close()	
 
+def save_config_nxos():
+	fo = open(commands_file, 'r') 
+	for snd_cmd in fo:
+		print '\t*** Saving configuration ***' 
+		end_write_nxos()
+		time.sleep(.5)
+	fo.close()	
+	
 # Perform connection to the device and call SSH shell 
 def connect():
     creds()
