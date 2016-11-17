@@ -140,7 +140,8 @@ def push_config():
 	cmds = fo.readlines()
 	for line in cmds:
 		print '\t*** Sending: %s'  % line.strip()
-		remote_conn.send('%s\n') % line.strip()
+		ok1 = '%s' % line.strip
+		remote_conn.send(ok1)
 		time.sleep(.5)
 		end_write()
 
