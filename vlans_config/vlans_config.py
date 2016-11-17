@@ -140,14 +140,14 @@ def yes_no_save():
 	print '\n\n\t\tFor NX-OS press x'
 	print '\n\n\t\tFor IOS press i'
     while True:
-        char = getch()
-        if char.lower() == "x":
-            print char
-            clear_screen()
-            save_config_nxos()
-            print '\n\n Program finished. Press enter to return to main menu. '
+		char = getch()
+		if char.lower() == "x":
+			print char
+			clear_screen()
+			save_config_nxos()
+			print '\n\n Program finished. Press enter to return to main menu. '
 		else:
-			main_menu()	
+			main_menu()
 
 # Welcome page function
 def main_menu():
