@@ -151,7 +151,7 @@ def push_config():
     for line in fo:
         print '\t*** Sending: ' + line.strip()
         remote_conn.send(line + '\n')
-		time.sleep(.5)
+        time.sleep(.5)
 	end_write()
 	fo.close()
 
