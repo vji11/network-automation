@@ -146,14 +146,12 @@ def yes_no_save():
             clear_screen()
             save_config_nxos()
             print '\n\n Program finished. Press enter to return to main menu.'
-        else:
-            main_menu()
-		if char.lower() == "i":
+		elif char.lower() == "i":
 			print char
 			clear_screen()
 			save_config_ios()
 			print '\n\n Program finished. Press enter to return to main menu.'
-        else:
+		else:
             main_menu()	
 
 # Welcome page function
