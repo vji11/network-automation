@@ -35,9 +35,9 @@ def press_return():
     print '\n\nPress enter to go back\n'
     raw_input(' >> ')
 	
-def end_write_nxos():
+def end_write():
 	remote_conn.send('end\n')
-	remote_conn.send('copy run start\n')
+	remote_conn.send('wr mem\n')
 	remote_conn.send('\n')
 
 # Call menu items function
@@ -189,7 +189,7 @@ def connect():
 					time.sleep(1)
 					enter_config_mode()
 					push_config()
-					end_write_nxos()
+					end_write()
 					print '\t\n*** Device Successfully configured ***'
                 else:
                     print '\t*** Incorrect Enable Password ***'
