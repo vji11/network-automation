@@ -137,13 +137,12 @@ def creds():
 # Parse the commands list and store it globaly
 def push_config():
 	fo = open(commands_file, 'r') 
-	cmds = fo.readlines()
-	for line in cmds:
+	for snd_cmd in fo:
 		print '\t*** Sending: ' + line.strip()
 		fo.close()
-		remote_conn.send(cmds + '\n')
+		remote_conn.send(snd_cmd + '\n')
 		time.sleep(.5)
-		end_write()
+	end_write()
 
 # Perform connection to the device and call SSH shell 
 def connect():
