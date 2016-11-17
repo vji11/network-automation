@@ -22,7 +22,6 @@ def args():
 		'1': sh_host_list,
 		'2': sh_commands_list,
 		'3': yes_no,
-		'4': yes_no_save,
 		'0': prog_exit}
 
 '''Define menus and menu calls and menu navigation'''
@@ -35,6 +34,10 @@ def clear_screen():
 def press_return():
     print '\n\nPress enter to go back\n'
     raw_input(' >> ')
+	
+def end_write_nxos():
+    remote_conn.send('end\n')
+    remote_conn.send('copy run start\n')	
 
 # Call menu items function
 def exec_menu(menu_actions, menu_return, choice):
@@ -107,38 +110,6 @@ def yes_no():
         else:
             main_menu()
 			
-def yes_no_save():
-    try:
-        from msvcrt import getch
-    except ImportError:
-        def getch():
-            import sys, tty, termios
-            fd = sys.stdin.fileno()
-            old_settings = termios.tcgetattr(fd)
-            try:
-                tty.setraw(sys.stdin.fileno())
-                ch = sys.stdin.read(1)
-            finally:
-                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-            return ch
-	print '\n\n'
-	print '\tYou are about to save the switches configuration.'
-	print '\tNote that IOS and NX-OS commands differ.'
-	print '\tNX-OS uses copy run start.'
-	print '\tIOS uses write memory'
-	print '\n\n\tFor what kind of OS you need to save the configuration?\n\n'
-	print '\tFor NX-OS press x\n'
-	print '\tFor IOS press i'
-    while True:
-		char = getch()
-		if char.lower() == "i":
-			print char
-			clear_screen()
-			save_config_ios()
-			print '\n\n Program finished. Press enter to return to main menu. '
-		else:
-			main_menu()
-
 # Welcome page function
 def main_menu():
 	clear_screen()
@@ -159,8 +130,7 @@ def main_menu():
 	print '\n\n\tPlease choose an option from the following:\n\n'
 	print '\t\t1. Show IP addresses in list file\n'
 	print '\t\t2. Show the commands to be pushed to the devices\n'
-	print '\t\t3. Perform the configuration\n'
-	print '\t\t4. Save the configuration'
+	print '\t\t3. Push the configuration to all devices\n'
 	print '\n\n\t\t0. Quit'
 	choice = raw_input('\n\n >> ')
 	exec_menu(menu_actions, menu_return, choice)
