@@ -133,7 +133,7 @@ def main_menu():
 	print '\n\n\tPlease choose an option from the following:\n\n'
 	print '\t\t1. Show IP addresses in list file\n'
 	print '\t\t2. Show the commands to be pushed to the devices\n'
-	print '\t\t3. Perform the configuration'
+	print '\t\t3. Perform the configuration\n'
 	print '\t\t4. Save the configuration'
 	print '\n\n\t\t0. Quit'
 	choice = raw_input('\n\n >> ')
