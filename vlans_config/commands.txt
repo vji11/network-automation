@@ -1,3 +1,0 @@
-conf t
-vlan 219
-name CM_Infra_floc
