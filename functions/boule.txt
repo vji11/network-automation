@@ -1,0 +1,16 @@
+with open('file') as f:
+        x = sum(1 for _ in f)
+print 'nr de linii este %d'  % x
+
+i = -1
+while i < x:
+        i +=1
+        gigi = 'remote_conn.send(cmds[%i])' % i
+        print gigi
+
+fo = open('file', 'r')
+cmds = fo.readlines()
+for line in cmds:
+        o = '%s' % line.strip()
+        print o
+        #print '%s' % line.strip()
