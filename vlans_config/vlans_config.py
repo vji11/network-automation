@@ -209,3 +209,10 @@ def main():
 if __name__ == '__main__':
 	args()
 	main()
+	
+"
+__author__ = "Valentin Jieanu"
+__copyright__ = "Copyright (C) 2016 Valentin Jieanu"
+__license__ = "Public"
+__version__ = "1.0"
+"	
