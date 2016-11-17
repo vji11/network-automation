@@ -189,10 +189,8 @@ def connect():
 					time.sleep(1)
 					enter_config_mode()
 					push_config()
-					print '\t\n*** Device Successfully configured ***'
-					time.sleep(1)
 					end_write_nxos()
-					print '\t\n*** NVRAM saved ***'
+					print '\t\n*** Device Successfully configured ***'
 				else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
