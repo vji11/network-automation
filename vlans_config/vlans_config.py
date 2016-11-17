@@ -210,9 +210,11 @@ if __name__ == '__main__':
 	args()
 	main()
 	
-"
-__author__ = "Valentin Jieanu"
-__copyright__ = "Copyright (C) 2016 Valentin Jieanu"
-__license__ = "Public"
-__version__ = "1.0"
-"	
+''''
+author = "Valentin Jieanu"
+copyright = "Copyright (C) 2016 Valentin Jieanu"
+date created = 17/11/2016
+date modified = 17/11/2016
+license = "Public"
+version = "1.0"
+'''
