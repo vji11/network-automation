@@ -17,10 +17,6 @@ def args():
 	global main_menu_actions, hosts_file, commands_file, vlan_cfg
 	hosts_file = arg['hosts']
 	commands_file = arg['commands']
-	vlan_cfg = ['configure terminal',
-			    'vlan 219',
-			    'name vlan-name',
-			    'exit']
 	main_menu_actions = {
 		'main_menu': main_menu,
 		'1': sh_host_list,
@@ -144,12 +140,9 @@ def push_config():
 	cmds = fo.readlines()
 	for line in cmds:
 		print '\t*** Sending: ' + line.strip()
-	remote_conn.send(cmds[0])
-	remote_conn.send(cmds[1])
-	remote_conn.send(cmds[2])
-	remote_conn.send(cmds[3])
-	time.sleep(.5)
-	end_write()
+		remote_conn.send(cmds[%s]) % line.strip()
+		time.sleep(.5)
+		end_write()
 
 # Perform connection to the device and call SSH shell 
 def connect():
