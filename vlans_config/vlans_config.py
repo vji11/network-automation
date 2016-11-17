@@ -21,8 +21,8 @@ def args():
 		'main_menu': main_menu,
 		'1': sh_host_list,
 		'2': sh_commands_list,
-		'3': yes_no(connect),
-		'4': yes_no(save_config),
+		'3': yes_no,
+		'4': yes_no,
 		'0': prog_exit}
 
 '''Define menus and menu calls and menu navigation'''
@@ -86,7 +86,7 @@ def sh_commands_list():
 	main_menu()
 	
  # Interfactive yes_no menu to continue with the configuration
-def yes_no(call_function):
+def yes_no():
     try:
         from msvcrt import getch
     except ImportError:
@@ -108,7 +108,7 @@ def yes_no(call_function):
         if char.lower() == "y":
             print char
             clear_screen()
-            call_function()
+            connect()
             print '\n\n Program finished. Press enter to return to main menu.'
         else:
             main_menu()
