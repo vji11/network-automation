@@ -84,8 +84,6 @@ def sh_commands_list():
 	press_return()
 	main_menu()
 	
-
-
  # Interfactive yes_no menu to continue with the configuration
 def yes_no():
     try:
@@ -190,10 +188,6 @@ def connect():
             except socket.error:
                 print '\t*** %s is Unreachable ***' % host
             client.close()
-
-#def test_cmds():
-#	for cmds in vlan_cfg:
-#		print '\t' + cmds
 
 # main program run parameters
 def main():
