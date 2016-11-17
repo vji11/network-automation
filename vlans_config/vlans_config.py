@@ -188,9 +188,13 @@ def connect():
 					remote_conn.send('terminal length 0\n')
 					time.sleep(1)
 					enter_config_mode()
+					time.sleep(1)
 					push_config()
+					time.sleep(1)
 					remote_conn.send('end\n')
+					time.sleep(1)
 					remote_conn.send('copy run start\n')
+					time.sleep(1)
 					remote_conn.send('\n')
 					print '\t\n*** Device Successfully configured ***'
                 else:
