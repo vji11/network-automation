@@ -36,8 +36,9 @@ def press_return():
     raw_input(' >> ')
 	
 def end_write_nxos():
-    remote_conn.send('end\n')
-    remote_conn.send('copy run start\n')	
+	remote_conn.send('end\n')
+	remote_conn.send('copy run start\n')
+	remote_conn.send('\n')	
 
 # Call menu items function
 def exec_menu(menu_actions, menu_return, choice):
@@ -183,13 +184,16 @@ def connect():
                     time.sleep(1)
                     output = remote_conn.recv(1000)
                 if '#' in output:
-                    print '\t*** Successfully Entered Enable Mode ***'
-                    remote_conn.send('terminal length 0\n')
-                    time.sleep(1)
-                    enter_config_mode()
-                    push_config()
-                    print '\t\n*** Device Successfully configured ***'
-                else:
+					print '\t*** Successfully Entered Enable Mode ***'
+					remote_conn.send('terminal length 0\n')
+					time.sleep(1)
+					enter_config_mode()
+					push_config()
+					print '\t\n*** Device Successfully configured ***'
+					time.sleep(1)
+					end_write_nxos()
+					print '\t\n*** NVRAM saved ***'
+				else:
                     print '\t*** Incorrect Enable Password ***'
             except paramiko.SSHException:
                 print '\t*** Authentication Failed ***'
