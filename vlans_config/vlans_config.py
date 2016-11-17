@@ -189,7 +189,9 @@ def connect():
 					time.sleep(1)
 					enter_config_mode()
 					push_config()
-					end_write()
+					remote_conn.send('end\n')
+					remote_conn.send('copy run start\n')
+					remote_conn.send('\n')
 					print '\t\n*** Device Successfully configured ***'
                 else:
                     print '\t*** Incorrect Enable Password ***'
