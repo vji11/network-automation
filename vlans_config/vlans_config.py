@@ -56,15 +56,6 @@ def enter_config_mode():
 	remote_conn.send('conf t\n')
 	time.sleep(1)
 
-# Finish device configuration and save
-def end_write_ios():
-    remote_conn.send('end\n')
-    remote_conn.send('wr mem\n')
-
-def end_write_nxos():
-	remote_conn.send('end\n')
-	remote_conn.send('copy run start\n')	
-
 ''' Define menu actions '''
 
 # Show what host file contains
@@ -196,7 +187,8 @@ def save_config_ios():
 	fo = open(commands_file, 'r') 
 	for snd_cmd in fo:
 		print '\t*** Saving configuration ***' 
-		end_write_ios()
+		remote_conn.send('end\n')
+		remote_conn.send('wr mem\n')
 		time.sleep(.5)
 	fo.close()	
 
@@ -204,7 +196,8 @@ def save_config_nxos():
 	fo = open(commands_file, 'r') 
 	for snd_cmd in fo:
 		print '\t*** Saving configuration ***' 
-		end_write_nxos()
+		remote_conn.send('end\n')
+		remote_conn.send('copy run start\n')
 		time.sleep(.5)
 	fo.close()	
 	
