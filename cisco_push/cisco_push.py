@@ -208,7 +208,7 @@ def connect():
 # main program run parameters
 def main():
 	print 'Program starting... please wait\n'
-	time.sleep(0)
+	time.sleep(2)
 	main_menu()
 
 # main program run from main file
