@@ -102,7 +102,7 @@ def yes_no():
     print ('\n\n\tYou are about to modify the switches configuration.\n\n')
     print ('\n\n\t\tAre you sure you want to continue? y/n')
     while True:
-        char = getch()
+        char = getch().decode()
         if char.lower() == "y":
             print (char)
             clear_screen()
