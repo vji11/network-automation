@@ -32,7 +32,7 @@ def clear_screen():
 
 # Navigate to Main Menu function
 def press_return():
-    print '\n\nPress enter to go back\n'
+    print ('\n\nPress enter to go back\n')
     raw_input(' >> ')
 	
 def end_write():
