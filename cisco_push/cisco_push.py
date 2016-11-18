@@ -46,7 +46,7 @@ def exec_menu(menu_actions, menu_return, choice):
 	try:
 		menu_actions[choice]()
 	except KeyError:
-		print 'Invalid Selection, Please Try Again.\n'
+		print ('Invalid Selection, Please Try Again.\n')
 		time.sleep(1)
 		menu_return()    
 
@@ -55,7 +55,7 @@ def prog_exit():
     sys.exit()
 
 def enter_config_mode():
-	print '\t*** Entering configure terminal mode *** \n'
+	print ('\t*** Entering configure terminal mode *** \n')
 	remote_conn.send('conf t\n')
 	time.sleep(1)
 
@@ -64,10 +64,10 @@ def enter_config_mode():
 # Show what host file contains
 def sh_host_list():
     hosts = open(hosts_file, 'r')
-    print '\n\n\tHosts in file: \n'
+    print ('\n\n\tHosts in file: \n')
     for x in hosts:
-        print '\t\t' + x.strip('\n')
-    print '\n\n'
+        print ('\t\t' + x.strip('\n'))
+    print ('\n\n')
     hosts.close()
     press_return()
     main_menu()
@@ -75,10 +75,10 @@ def sh_host_list():
 # Show what commands file contains
 def sh_commands_list():
 	commands = open(commands_file, 'r')
-	print '\n\n\tCommands in file: \n'
+	print ('\n\n\tCommands in file: \n')
 	for x in commands:
-		print '\t\t' + x.strip('\n')
-	print '\n\n'
+		print ('\t\t' + x.strip('\n'))
+	print ('\n\n')
 	commands.close()
 	press_return()
 	main_menu()
@@ -98,16 +98,16 @@ def yes_no():
             finally:
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
             return ch
-    print '\n\n'
-    print '\n\n\tYou are about to modify the switches configuration.\n\n'
-    print '\n\n\t\tAre you sure you want to continue? y/n'
+    print ('\n\n')
+    print ('\n\n\tYou are about to modify the switches configuration.\n\n')
+    print ('\n\n\t\tAre you sure you want to continue? y/n')
     while True:
         char = getch()
         if char.lower() == "y":
-            print char
+            print (char)
             clear_screen()
             connect()
-            print '\n\n Program finished. Press enter to return to main menu.'
+            print ('\n\n Program finished. Press enter to return to main menu.')
         else:
             main_menu()
 			
@@ -116,23 +116,23 @@ def main_menu():
 	clear_screen()
 	menu_actions = main_menu_actions
 	menu_return = main_menu
-	print '\n\n'
-	print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
-	print '\t*      Python Program for bulk network configuration        *'
-	print '\t*                                                           *'
-	print '\t*    Is is recomended to use this script to automate        *'
-	print '\t*    simple and repetitive configuration tasks.             *'
-	print '\t*                                                           *'
-	print '\t*    It is not recommended to use this program for          *'
-	print '\t*    complex tasks, like OSPF routing changes               *'
-	print '\t*                                                           *'
-	print '\t*                               Author: Valentin Jieanu     *'
-	print '\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
-	print '\n\n\tPlease choose an option from the following:\n\n'
-	print '\t\t1. Show IP addresses in list file\n'
-	print '\t\t2. Show the commands to be pushed to the devices\n'
-	print '\t\t3. Push the configuration to all devices\n'
-	print '\n\n\t\t0. Quit'
+	print ('\n\n')
+	print ('\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *')
+	print ('\t*      Python Program for bulk network configuration        *')
+	print ('\t*                                                           *')
+	print ('\t*    Is is recomended to use this script to automate        *')
+	print ('\t*    simple and repetitive configuration tasks.             *')
+	print ('\t*                                                           *')
+	print ('\t*    It is not recommended to use this program for          *')
+	print ('\t*    complex tasks, like OSPF routing changes               *')
+	print ('\t*                                                           *')
+	print ('\t*                               Author: Valentin Jieanu     *')
+	print ('\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *')
+	print ('\n\n\tPlease choose an option from the following:\n\n')
+	print ('\t\t1. Show IP addresses in list file\n')
+	print ('\t\t2. Show the commands to be pushed to the devices\n')
+	print ('\t\t3. Push the configuration to all devices\n')
+	print ('\n\n\t\t0. Quit')
 	choice = raw_input('\n\n >> ')
 	exec_menu(menu_actions, menu_return, choice)
 	return  
@@ -148,7 +148,7 @@ def creds():
 def push_config():
 	fo = open(commands_file, 'r') 
 	for snd_cmd in fo:
-		print '\t*** Sending: ' + snd_cmd.strip()
+		print ('\t*** Sending: ' + snd_cmd.strip())
 		remote_conn.send(snd_cmd + '\n')
 		time.sleep(.5)
 	fo.close()
@@ -169,22 +169,22 @@ def connect():
             print_host = host
             print_host = print_host.replace('\n', '')
             try:
-                print '\n----- Connecting to %s -----\n' % print_host
+                print ('\n----- Connecting to %s -----\n' % print_host)
                 client.connect(host,username=username,password=password,timeout=5)
-                print '\t*** SSH session established with %s ***' % print_host
+                print ('\t*** SSH session established with %s ***' % print_host)
                 remote_conn = client.invoke_shell()
                 output = remote_conn.recv(1000)
                 time.sleep(1)
                 if '#' not in output:
                     remote_conn.send('en\n')
                     time.sleep(1)
-                    print '\t*** Sending Enable Password ***'
+                    print ('\t*** Sending Enable Password ***')
                     remote_conn.send(en_password)
                     remote_conn.send('\n')
                     time.sleep(1)
                     output = remote_conn.recv(1000)
                 if '#' in output:
-					print '\t*** Successfully Entered Enable Mode ***'
+					print ('\t*** Successfully Entered Enable Mode ***')
 					remote_conn.send('terminal length 0\n')
 					time.sleep(1)
 					enter_config_mode()
@@ -196,18 +196,18 @@ def connect():
 					remote_conn.send('copy run start\n')
 					time.sleep(1)
 					remote_conn.send('\n')
-					print '\t\n*** Device Successfully configured ***'
+					print ('\t\n*** Device Successfully configured ***')
                 else:
-                    print '\t*** Incorrect Enable Password ***'
+                    print ('\t*** Incorrect Enable Password ***')
             except paramiko.SSHException:
-                print '\t*** Authentication Failed ***'
+                print ('\t*** Authentication Failed ***')
             except socket.error:
-                print '\t*** %s is Unreachable ***' % host
+                print ('\t*** %s is Unreachable ***' % host)
             client.close()
 			
 # main program run parameters
 def main():
-	print 'Program starting... please wait\n'
+	print ('Program starting... please wait\n')
 	time.sleep(2)
 	main_menu()
 
