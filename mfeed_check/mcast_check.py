@@ -55,8 +55,8 @@ else:
     print ('<br />')
     print ("Video feed is " + primary_appertv)
 
-print ('<br />')
-print ('<br />')
+
+print ("=================================================================================")
 print ('<br />')
 print ('<h2>Multicast route for network path B via rtmcastb0102:</h2>')
 
