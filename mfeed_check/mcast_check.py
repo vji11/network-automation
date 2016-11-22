@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import cgi
 import cgitb
 cgitb.enable()
@@ -35,16 +35,16 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 print '<h3>Multicast route for network path A via rtmcasta0101:</h3>'
 
 while web_select == 'mcast_src_feed':
-	#initiate ssh connection
-	ssh = paramiko.SSHClient()
-	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-	#run command on device and get read the output
-	ssh.connect(mydeviceA, port=22, username=b64usr, password=b64pass)
-	stdin, stdout, stder = ssh.exec_command(mroute_check)
-	output1 = stdout.readlines()
-#	print '\n'.join(output1)
-	ssh.close()
-	break
+    #initiate ssh connection
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    #run command on device and get read the output
+    ssh.connect(mydeviceA, port=22, username=b64usr, password=b64pass)
+    stdin, stdout, stder = ssh.exec_command(mroute_check)
+    output1 = stdout.readlines()
+#   print '\n'.join(output1)
+    ssh.close()
+    break
 
 if any(backup_interface in s1 for s1 in output1):
     print "Source interface of MCAST Route is " + backup_interface
@@ -58,16 +58,16 @@ else:
 print '<h3>Multicast route for network path B via rtmcastb0102:</h3>'
 
 while web_select == 'mcast_src_feed':
-	#initiate ssh connection
-	ssh = paramiko.SSHClient()
-	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-	#run command on device and get read the output
-	ssh.connect(mydeviceB, port=22, username=b64usr, password=b64pass)
-	stdin, stdout, stder = ssh.exec_command(mroute_check)
-	output2 = stdout.readlines()
-#	print '\n'.join(output2)
-	ssh.close()
-	break
+    #initiate ssh connection
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    #run command on device and get read the output
+    ssh.connect(mydeviceB, port=22, username=b64usr, password=b64pass)
+    stdin, stdout, stder = ssh.exec_command(mroute_check)
+    output2 = stdout.readlines()
+#   print '\n'.join(output2)
+    ssh.close()
+    break
 
 if any(backup_interface in s2 for s2 in output2):
     print "Source interface of MCAST Route is " + backup_interface
@@ -79,4 +79,4 @@ else:
     print "Video feed is " + primary_appertv   
 
 #program end
-print '</html>'	#end html page
+print '</html>' #end html page

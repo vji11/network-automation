@@ -69,4 +69,4 @@ print('<br />')
 
 #program end
 
-print '</html>'	#end html page
+print '</html>' #end html page
