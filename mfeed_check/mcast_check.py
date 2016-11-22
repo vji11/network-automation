@@ -49,13 +49,13 @@ while web_select == 'mcast_src_feed':
 if any(backup_interface in s1 for s1 in output1):
     print ("Source interface of MCAST Route is " + backup_interface)
     print ('<br />')
-    print ("Video feed is " + backup_appertv)
+    print ("Video feed is " + backup_appertv'\n')
 else:
     print ("Source interface of MCAST Route is " + primary_interface)
     print ('<br />')
-    print ("Video feed is " + primary_appertv)
+    print ("Video feed is " + primary_appertv'\n')
 
-
+print ('<br />')
 print ("=================================================================================")
 print ('<br />')
 print ('<h2>Multicast route for network path B via rtmcastb0102:</h2>')
@@ -75,11 +75,11 @@ while web_select == 'mcast_src_feed':
 if any(backup_interface in s2 for s2 in output2):
     print ("Source interface of MCAST Route is " + backup_interface)
     print ('<br />')
-    print ("Video feed is " + backup_appertv)
+    print ("Video feed is " + backup_appertv'\n')
 else:
     print ("Source interface of MCAST Route is " + primary_interface)
     print ('<br />')
-    print ("Video feed is " + primary_appertv)   
+    print ("Video feed is " + primary_appertv'\n')   
 
 #program end
 print ('</html>') #end html page
