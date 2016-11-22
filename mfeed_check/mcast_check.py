@@ -55,7 +55,7 @@ else:
     print('<br>')
     print ("\nVideo feed is " + primary_appertv)
 
-
+print('<br>')
 print ("=============================================================")
 print ('<h2>Multicast route for network path B via rtmcastb0102:</h2>')
 
