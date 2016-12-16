@@ -173,7 +173,7 @@ def connect():
                 client.connect(host,username=username,password=password,timeout=5)
                 print ('\t*** SSH session established with %s ***' % print_host)
                 remote_conn = client.invoke_shell()
-                output = remote_conn.recv(1000).decode()
+                output = remote_conn.recv(2000).decode()
                 time.sleep(1)
                 if '#' not in output:
                     remote_conn.send('en\n')
@@ -182,7 +182,7 @@ def connect():
                     remote_conn.send(en_password)
                     remote_conn.send('\n')
                     time.sleep(1)
-                    output = remote_conn.recv(1000).decode()
+                    output = remote_conn.recv(2000).decode()
                 if '#' in output:
                     print ('\t*** Successfully Entered Enable Mode ***')
                     remote_conn.send('terminal length 0\n')
