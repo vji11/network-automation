@@ -14,8 +14,8 @@ print '<html>' #start of html output
 
 import paramiko
 import base64
-b64pass = base64.b64decode("Y2ljaTE=")
-b64usr = base64.b64decode("dmppZWFudQ==")
+b64pass = base64.b64decode("scro")
+b64usr = base64.b64decode("scrot")
 sh_ver = 'show version'
 
 #initiate ssh connection

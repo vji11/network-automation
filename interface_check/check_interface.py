@@ -16,8 +16,8 @@ print '<html>' #start of html output
 
 import paramiko
 import base64
-b64pass = base64.b64decode("Y2ljaTE=")
-b64usr = base64.b64decode("dmppZWFudQ==")
+b64pass = base64.b64decode("jefe")
+b64usr = base64.b64decode("feje")
 int_check = "show interface " + "Gig" + mymodule + "/" + myport
 sh_run_int = "show run interface " + "Gig" + mymodule + "/" + myport
 

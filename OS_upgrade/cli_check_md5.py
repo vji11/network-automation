@@ -5,8 +5,8 @@
 import paramiko
 import base64
 
-b64pass = base64.b64decode("Y2ljaTE=")
-b64usr = base64.b64decode("dmppZWFudQ==")
+b64pass = base64.b64decode("nono")
+b64usr = base64.b64decode("nono")
 image = 'test.txt'
 device = raw_input('Device to upgrade: ')
 md5_sum = raw_input('MD5 Checksum of the image: ')
