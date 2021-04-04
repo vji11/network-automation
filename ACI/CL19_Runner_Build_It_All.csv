@@ -1,0 +1,2 @@
+﻿allocMode,descr,vlanName,from,to,adminSt,cdpPolicyName,physDomName,aaepName,ifPolicyGroupESXName,ifPolicyGroupLinuxName,ifPolicyGroupWindowsName,ifPolicyLeafProfileName,swPolicyLeafProfileName,leaf101Name,leaf101Id,leaf102Name,leaf102Id
+static,Created by Postman,all_vlans,vlan-2000,vlan-2501,enabled,cdp-enabled,physical_servers,all_vlans,ESX_Hosts,Linux_Hosts,Windows_Hosts,Leafs_101_and_102,Leafs_101_and_102,Leaf-101,101,Leaf-102,102
