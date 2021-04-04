@@ -1,0 +1,6 @@
+vpc_ipg_44
+vpc_ipg_21
+vpc_ipg_20
+VPC_ams2-telesphorus-controller2_POL_GRP
+VPC_ams2-telesphorus-controller1_POL_GRP
+vpc_ipg_24
