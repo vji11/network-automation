@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-"""
-
-//Rob van der Kind - robvand@cisco.com
-"""
 import acitoolkit.acitoolkit as aci
 import csv
 import getpass
