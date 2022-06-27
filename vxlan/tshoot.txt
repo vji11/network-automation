@@ -1,0 +1,45 @@
+Overlay Troubleshooting
+//Mac table output at leaf
+show mac address-table
+//MAC entries advertised over bgp-evpn at leaf
+show l2route evpn mac all
+//vlan to layer vni mapping at leaf
+show vlan id xxx vn-segment
+//bgp evpn route type 2 entries at leaf
+show bgp l2vpn evpn vni-id xxxxx
+//check prod + nexthop)
+show bgp l2vpn evpn 00ab.ccdd.eeff
+//mac entries received over bgp evpn at a remote leaf (prod = BGP and nexthop = originating vtep)
+show l2route evpn mac all
+//mac address table output at a remote leaf ( ports should be the originating nve interface )
+show mac address-table
+//arp table output at local leaf
+show ip arp vrf vrf-id
+//adjacency output for arp entry (flow is : ARP -> Adjacency manager AM -> host mobility manager HMM -> RIB table -> /32 route entry)
+show forwarding vrf vrf-id adjacency
+//locally learned host /32 route info ( HMM learnt local routes )
+show fabric forwarding ip local-host-db vrf vrf-id
+//check information is passed from ARP -> AM -> HMM ( prod = HMM) 
+show l2route evpn mac-ip all
+//details of a particular bgp evpn route type 2 advertisement with both IP and MAC at a local leaf (check advertised RT labels for L2VNI check RT for L3VNI and extended community) 
+show bgp l2vpn evpn IP-address
+//details of a particular bgp evpn route type 2 advertisement with both IP and MAC at a remote leaf ( check best paths , received labels , originator  and match extended community with the local leaf)
+//ip/mac entries received over bgp evpn at a remote leaf (check prod + nexthop) 
+show l2route evpn mac-ip all 
+//output of ip routing table for received /32 route installed in rib
+show ip route vrf vrf-ip host-ip
+//vtep information with a recursive next hop on a remote leaf ( check that the vxlan data plane encap is established the remote leaf: mapping VNI peer-IP , peer-MAC)
+show nve internal bgp rnh database
+//detailed vtep peer information on a remote leaf
+show nve peers detail
+
+ECMP: Path determination
+(where available use NGOAM framework)
+
+//ping from ingress vtep to egress vtep (simulating traffic)
+If source/destination are different networks use L3VNI , if inside same network use L2VNI. Proto 6 is example: emulated SMTP app signature.  Look for TCP app signature for different data patterns.
+ping nve ip unknown vrf <vrf-id> payload ip <source-ip> <destination-ip> port <source-port:example:5644> <destination-port> proto 6 payload-end vni <L3VNI-id> verbose
+//traceroute
+traceroute nve ip unknown vrf <vrf-id> payload ip <src-ip> <dst-ip> port <src-port> <dst-port> proto 6 payload-end vni <l2-or-l3-vni> verbose
+//vxlan nx-os OAM embbeded traffic simulator pathtrace
+pathtrace nve ip unknown vrf <vrf-id> payload ip <src-ip> <dst-ip> port <src-port> <dst-port> proto <protocol-id> payload-end vni <vni-id> verbose req-stats
