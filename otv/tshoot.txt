@@ -1,0 +1,80 @@
+Overlay troubleshooting
+//status of the overlay
+show otv overlay <id>
+//OTV IS-IS adjacency on the overlay
+show otv adjacency
+//OTV IS-IS site adjacency
+show otv site
+//check site-id for an is-is neighbor
+show otv internal adjacency
+//check otv event-history logs
+show otv isis internal event-history adjacency
+//check otv dynamic unicast tunnels
+show tunnel internal implicit otv brief
+//verify detailed dynamic tunnel parameters
+show tunnel internal implicit otv tunnel_num <number>
+//verify which OTV ED (edge device) is the AED (Authoritative Edge Device)
+show otv vlan
+//check the IP multicast state on the router facing OTV ED “join interface”
+show ip mroute <group>
+//verify the current bit-rate of the otv control-group
+show ip mroute <group> summary
+//check isis iih event history (isis hellos)
+show otv isis internal event-history iih | inc site
+//verify STP for the site VLAN
+show spanning-tree vlan <site-vlan> detail
+//verify otv isis database (map LSP-id)
+show otv isis database
+//identify which isis database entries belong to which neighbors
+show otv isis hostname
+//check the content of an individual LSP
+show otv isis database detail <LSP-id>
+//check for flapping frequency of a given LSP
+show otv isis database detail <LSP-id> | diff
+//check consistency for the mac routes 
+show otv route
+//check the route events for potential flapping
+show otv isis internal event-history spf-leaf | egrep <Process id-mac>
+//check ISIS advertisements at the originator AED
+show otv isis mac redistribute route
+//check otv isis overlay and site-vlan traffic statistics
+show otv isis traffic <overlay-interface-id>
+show otv isis site statistics
+//check parameters of overlay interface
+show otv isis interface overlay <interface-id>
+//check otv control plane policing CoPP (from default vdc)
+show policy-map interface control-plane
+//verify the ARP ND-cache (arp neighbor discovery)
+show otv arp-nd-cache
+//verify ARP ND-cache events
+show otv internal event-history arp-nd
+//verify OTV routing table for a vlan
+show otv route vlan <vlan-id>
+//verify dynamic mac address table - remote MAC should be learned via overlay interface
+show mac address-table dynamic vlan <vlan-id>
+Troubleshoot multicast overlay traffic over multicast underlay transport(multicast in multicast encapsulation)
+
+//display mrouter for vlan
+show ip igmp snooping mrouter vlan <vlan-id>
+//display otv mroute
+show otv mroute
+//display otv isis mgroup database - take LSD-id from show otv adjacency on the receiver ED
+show otv isis database mgroup detail <LSP-id>
+//display otv (V,S,G) mroute detail
+show otv mroute detail
+//display otv mroute redistribution into otv is-is overlay
+show otv isis ip redistribute mroute
+show otv isis ip redistribute mroute detail <LSP-id>
+//display logs events
+show otv isis internal event-history mcast
+//display site group to delivery group mapping
+show otv data-group
+//mroute verification in the underlay transport network (on a edge router)
+show ip mroute <mcast-group>
+
+ Troubleshoot multicast traffic over unicast transport (Adjacency Server Mode)
+//same steps as for multicast transport with additional
+//check igmp proxy reports
+show ip igmp snooping statistics <vlan-id>
+//igmp snooping table (check overlay interface is included in the port list)
+show ip igmp snooping otv groups
